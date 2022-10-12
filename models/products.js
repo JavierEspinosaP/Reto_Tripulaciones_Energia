@@ -1,6 +1,6 @@
 require('dotenv').config();
 const dataQueries = require('../queries/dataQueries')
-const pool = require('../utils/mySql')
+const pool = require('../utils/dbSql')
 
 
 const getAllProducts = async () => {

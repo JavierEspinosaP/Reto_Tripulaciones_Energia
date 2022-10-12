@@ -22,15 +22,15 @@ const Example = () => {
   };
 
   return (
-    <>
+    <div className="camaraContainer">
       <QrReader
         delay={delay}
         style={previewStyle}
         onError={handleError}
         onScan={handleScan}
       />
-      <p id="result">{result.data}</p>
-    </>
+      <p id="result">{result.data}</p>      
+    </div>
   );
 };
 
