@@ -1,50 +1,44 @@
 import React, { Component } from 'react'
-import QrReader from 'react-qr-scanner'
+import QrReader from 'modern-react-qr-reader'
 
+class Test extends Component {
+  constructor(props) {
+        super(props);
 
-class Scanner extends Component {
+        this.state = {
+            result: 'No result'
+        }
 
-
-  constructor(props){
-    super(props)
-    this.state = {
-      delay: 100,
-      result: 'No result'
+        this.handleError = this.handleError.bind(this);
+        this.handleScan = this.handleScan.bind(this);
     }
 
-    this.handleScan = this.handleScan.bind(this)
-  }
-  handleScan(data){
-    if (data!=null) {
-    this.setState({
-      result: data.text,
-    })      
+  handleScan = data => {
+    if (data) {
+      this.state.result = data;
+        console.log(this.state.result);
+        this.setState({result: data});
     }
-
   }
-  handleError(err){
+  
+  handleError = err => {
     console.error(err)
   }
-  render(){
-    const previewStyle = {
-      height: 240,
-      width: 320,
-    }
-
-    return(
+  
+  render() {
+    return (
       <div>
         <QrReader
-          delay={this.state.delay}
-          style={previewStyle}
+          delay={300}
+          facingMode={"environment"}
           onError={this.handleError}
           onScan={this.handleScan}
-          constraints={ {facingMode: 'environment'} }
-          legacyMode={this.state.legacy}
-          />
+          style={{ width: '100%' }}
+        />
         <p>{this.state.result}</p>
       </div>
     )
   }
 }
 
-export default Scanner
+export default Test
