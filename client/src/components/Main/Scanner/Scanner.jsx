@@ -17,7 +17,7 @@ const Test = (props) => {
           }
         }}
         style={{ width: '20%' }}
-        constraints={ {facingMode: 'environment'} }
+        constraints={ {facingMode: 'rear'} }
       />
       <p>{data}</p>
     </>
