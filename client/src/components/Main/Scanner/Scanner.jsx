@@ -29,7 +29,7 @@ const Example = () => {
         onError={handleError}
         onScan={handleScan}
       />
-      <p>{result}</p>
+      <p id="result">{result.data}</p>
     </>
   );
 };
