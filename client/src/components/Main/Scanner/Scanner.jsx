@@ -9,7 +9,7 @@ const Example = () => {
     width: 320
   };
 
-  const [result, setResult] = useState("Noooo result");
+  const [result, setResult] = useState("No result");
 
   const handleScan = (result) => {
     if (result) {
@@ -30,7 +30,6 @@ const Example = () => {
         onScan={handleScan}
       />
       <p>{result}</p>
-      <p>Holaaaa</p>
     </>
   );
 };
