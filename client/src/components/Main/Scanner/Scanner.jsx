@@ -38,6 +38,7 @@ class Scanner extends Component {
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
+          facinMode={"rear"}
           />
         <p>{this.state.result}</p>
       </div>
