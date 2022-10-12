@@ -1,27 +1,37 @@
-import React, { useState } from 'react';
-import { QrReader } from 'react-qr-reader';
+import React, {useState} from "react";
+import QrReader from "react-web-qr-reader";
 
-const Test = (props) => {
-  const [data, setData] = useState('No result');
+const Example = () => {
+  const delay = 500;
+
+  const previewStyle = {
+    height: 240,
+    width: 320
+  };
+
+  const [result, setResult] = useState("No result");
+
+  const handleScan = (result) => {
+    if (result) {
+      setResult(result);
+    }
+  };
+
+  const handleError = (error) => {
+    console.log(error);
+  };
 
   return (
     <>
       <QrReader
-        onResult={(result, error) => {
-          if (!!result) {
-            setData(result?.text);
-          }
-
-          if (!!error) {
-            console.info(error);
-          }
-        }}
-        style={{ width: '20%' }}
-        constraints={ {facingMode: 'rear'} }
+        delay={delay}
+        style={previewStyle}
+        onError={handleError}
+        onScan={handleScan}
       />
-      <p>{data}</p>
+      <p>{result}</p>
     </>
   );
 };
 
-export default Test;
+export default Example;
