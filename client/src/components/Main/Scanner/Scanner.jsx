@@ -15,9 +15,12 @@ class Scanner extends Component {
     this.handleScan = this.handleScan.bind(this)
   }
   handleScan(data){
+    if (data!=null) {
     this.setState({
       result: data.text,
-    })
+    })      
+    }
+
   }
   handleError(err){
     console.error(err)
