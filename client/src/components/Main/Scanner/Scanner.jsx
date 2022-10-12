@@ -30,6 +30,7 @@ const Example = () => {
         onScan={handleScan}
       />
       <p>{result}</p>
+      <p>Holaaaa</p>
     </>
   );
 };
