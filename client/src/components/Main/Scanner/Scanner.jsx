@@ -10,6 +10,7 @@ class Scanner extends Component {
     this.state = {
       delay: 100,
       result: 'No result',
+      mode: 'rear'
     }
 
     this.handleScan = this.handleScan.bind(this)
@@ -38,7 +39,7 @@ class Scanner extends Component {
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
-          facinMode={"rear"}
+          facinMode={this.state.mode}
           />
         <p>{this.state.result}</p>
       </div>
