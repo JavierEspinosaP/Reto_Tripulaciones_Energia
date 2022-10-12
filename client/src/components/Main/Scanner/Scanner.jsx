@@ -9,7 +9,7 @@ const Example = () => {
     width: 320
   };
 
-  const [result, setResult] = useState("No result");
+  const [result, setResult] = useState("Noooo result");
 
   const handleScan = (result) => {
     if (result) {
