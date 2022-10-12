@@ -1,8 +1,11 @@
 import React from 'react'
+import Scanner from './Scanner'
 
 function Main() {
   return (
-    <div>Main</div>
+    <div>
+      <Scanner />
+    </div>
   )
 }
 

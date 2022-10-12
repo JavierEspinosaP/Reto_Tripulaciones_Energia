@@ -7,9 +7,9 @@ const getAllProducts = async () => {
     let client, result;
     try {
         client = await pool.connect()
-        console.log(client);
         const data = await client.query(dataQueries.getAllProducts)
         result = data.rows
+        console.log(data);
 
     } catch (error) {
         console.log(error);
