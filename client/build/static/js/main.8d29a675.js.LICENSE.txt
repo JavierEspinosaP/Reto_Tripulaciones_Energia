@@ -57,8 +57,6 @@ object-assign
  * @license MIT
  */
 
-<<<<<<< HEAD:client/build/static/js/main.dd19218e.js.LICENSE.txt
-=======
 /**
  * React Router DOM v6.4.2
  *
@@ -81,7 +79,6 @@ object-assign
  * @license MIT
  */
 
->>>>>>> develop:client/build/static/js/main.8d29a675.js.LICENSE.txt
 /** @license MUI v5.10.8
  *
  * This source code is licensed under the MIT license found in the
