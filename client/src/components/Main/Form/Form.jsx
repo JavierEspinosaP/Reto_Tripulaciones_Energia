@@ -1,71 +1,104 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Downshift from 'downshift'
-import {menuStyles, comboboxStyles} from './shared'
+import { menuStyles, comboboxStyles } from './shared'
 import Input from '@mui/material/Input'
 import List from '@mui/material/List'
 import Button from '@mui/material/Button'
+import axios from 'axios'
+import { Link } from "react-router-dom";
 
 
-const items = [
-  {value: 'apple'},
-  {value: 'pear'},
-  {value: 'orange'},
-  {value: 'grape'},
-  {value: 'banana'},
-]
+
+
+
+// const items = [
+//   {value: 'apple'},
+//   {value: 'pear'},
+//   {value: 'orange'},
+//   {value: 'grape'},
+//   {value: 'banana'},
+// ]
 
 
 const Form = () => {
 
-return(
-  <Downshift
-    onChange={(selection) =>
-      alert(selection ? `You selected ${selection.value}` : 'Selection Cleared')
+  const [pokData, setPokData] = useState([])
+
+  useEffect(() => {
+
+    async function fetchData() {
+      try {
+        const resPok = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1154")
+
+        const pokemons = await resPok.data.results
+        
+        const names = await pokemons.map(n => n.name)
+
+        setPokData(names)
+      }
+      catch (e) {
+        setPokData([])
+      }
     }
-    itemToString={(item) => (item ? item.value : '')}
-  >
-    {({
-      getInputProps,
-      getItemProps,
-      getMenuProps,
-      getLabelProps,
-      getToggleButtonProps,
-      inputValue,
-      highlightedIndex,
-      selectedItem,
-      isOpen,
-    }) => (
-      <div style={comboboxStyles}>
-        <label {...getLabelProps()}>Enter a fruit:</label>
-        <Input {...getInputProps()} />
-        <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
-          &#8595;
-        </Button>
-        <ul {...getMenuProps()} style={menuStyles}>
-          {isOpen &&
-            items
-              .filter((item) => !inputValue || item.value.includes(inputValue))
-              .map((item, index) => (
-                <List
-                  {...getItemProps({
-                    key: `${item.value}${index}`,
-                    item,
-                    index,
-                    style: {
-                      backgroundColor:
-                        highlightedIndex === index ? 'lightgray' : 'white',
-                      fontWeight: selectedItem === item ? 'bold' : 'normal',
-                    },
-                  })}
-                >
-                  {item.value}
-                </List>
-              ))}
-        </ul>
-      </div>
-    )}
-  </Downshift>
-)
+    fetchData()
+
+  }, [])
+
+
+  return (
+    <div className="formContainer">
+<Link   to={"/"}><Button className="btn-back" variant="contained">Volver</Button></Link>
+    <Downshift
+      onChange={(selection) =>
+        alert(selection ? `You selected ${selection}` : 'Selection Cleared')
+      }
+      itemToString={(item) => (item ? item : '')}
+    >
+      {({
+        getInputProps,
+        getItemProps,
+        getMenuProps,
+        getLabelProps,
+        getToggleButtonProps,
+        inputValue,
+        highlightedIndex,
+        selectedItem,
+        isOpen,
+      }) => (
+        <div style={comboboxStyles}>
+          <label {...getLabelProps()}>Enter a pokemon:</label>
+          <Input {...getInputProps()} />
+          <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
+            &#8595;
+          </Button>
+          <ul {...getMenuProps()} style={menuStyles}>
+            {isOpen &&
+              // items aqui es donde se cargan los datos para el autocompletado
+              pokData
+                .filter((item) => !inputValue || item.includes(inputValue.toLowerCase()))
+                .map((item, index) => (
+                  <List
+                    {...getItemProps({
+                      key: `${item}${index}`,
+                      item,
+                      index,
+                      style: {
+                        backgroundColor:
+                          highlightedIndex === index ? 'lightgray' : 'white',
+                        fontWeight: selectedItem === item ? 'bold' : 'normal',
+                      },
+                    })}
+                  >
+                    {item}
+                  </List>
+                ))}
+          </ul>
+        </div>
+      )}
+    </Downshift>      
+    </div>
+    
+  )
 }
 
 export default Form

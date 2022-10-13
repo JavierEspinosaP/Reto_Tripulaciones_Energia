@@ -253,7 +253,7 @@ const selectedItemStyles = {
 
 const selectedItemIconStyles = {cursor: 'pointer'}
 
-const comboboxStyles = {display: 'inline-block', marginLeft: '5px'}
+const comboboxStyles = {display: 'inline-block', margin: '40px'}
 
 const comboboxWrapperStyles = {
   display: 'inline-flex',
