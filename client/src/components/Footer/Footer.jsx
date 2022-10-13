@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+    <div></div>
   )
 }
 

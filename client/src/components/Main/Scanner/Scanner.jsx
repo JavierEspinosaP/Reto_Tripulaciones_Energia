@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import QrReader from "react-web-qr-reader";
+import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const Example = () => {
   const delay = 500;
 
   const previewStyle = {
+    margin: "50px",
     height: 240,
     width: 320
   };
@@ -22,15 +25,16 @@ const Example = () => {
   };
 
   return (
-    <>
+    <div className="camaraContainer">
+      <Link className="btn-link"  to={"/"}><Button sx={{margin: 3}} variant="contained">Volver</Button></Link>
       <QrReader
         delay={delay}
         style={previewStyle}
         onError={handleError}
         onScan={handleScan}
       />
-      <p>{result}</p>
-    </>
+      <p id="result">{result.data}</p>      
+    </div>
   );
 };
 
