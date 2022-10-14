@@ -1,0 +1,25 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.category {
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    &>a {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: end;
+        padding-bottom: 10px;
+        text-align: center;
+        font-family: $paragraph;
+        font-size: 0.8rem;
+        text-decoration: none;
+        margin: 18px 10px 18px 10px;
+        width: 150px;
+        height: 150px;
+        border: solid 1px black;
+    }
+
+}

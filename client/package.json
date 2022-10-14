@@ -16,6 +16,7 @@
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
     "match-sorter": "^1.8.1",
+    "normalize.css": "^8.0.1",
     "qr-scanner": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,6 +26,7 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
+    "scss": "^0.2.4",
     "starwars-names": "^1.6.0",
     "uuid4": "^2.0.3",
     "web-vitals": "^2.1.4"
