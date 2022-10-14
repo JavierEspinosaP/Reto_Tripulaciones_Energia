@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import Downshift from 'downshift'
-import { menuStyles, comboboxStyles } from './shared'
-import Input from '@mui/material/Input'
-import List from '@mui/material/List'
-import Button from '@mui/material/Button'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import Downshift from 'downshift';
+import { menuStyles, comboboxStyles } from './shared';
+import Input from '@mui/material/Input';
+import List from '@mui/material/List';
+import Button from '@mui/material/Button';
+import axios from 'axios';
 import { Link } from "react-router-dom";
-
-
-
-
 
 // const items = [
 //   {value: 'apple'},
@@ -19,22 +15,30 @@ import { Link } from "react-router-dom";
 //   {value: 'banana'},
 // ]
 
-
 const Form = () => {
 
   const [pokData, setPokData] = useState([])
 
-  useEffect(() => {
+  useEffect(() => {  
 
     async function fetchData() {
       try {
-        const resPok = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1154")
 
-        const pokemons = await resPok.data.results
-        
-        const names = await pokemons.map(n => n.name)
+        const resDemo = await axios.get("http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campanas",{
+          headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },})
 
-        setPokData(names)
+        // console.log(resDemo);
+
+        // const models = await resDemo.data.Brand
+
+        // const labels = await resPok.data.results
+
+        // const m = await pokemons.map(n => n.name)
+
+        // setPokData(names)
       }
       catch (e) {
         setPokData([])
@@ -91,6 +95,7 @@ const Form = () => {
                   >
                     {item}
                   </List>
+                  
                 ))}
           </ul>
         </div>
