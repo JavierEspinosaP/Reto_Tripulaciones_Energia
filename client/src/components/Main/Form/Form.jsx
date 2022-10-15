@@ -31,7 +31,7 @@ const Form = () => {
     async function fetchData() {
       try {
 
-        const resDemo = await axios.get("http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campanas", {
+        const resDemo = await axios.get("http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campana_extractora", {
           headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
