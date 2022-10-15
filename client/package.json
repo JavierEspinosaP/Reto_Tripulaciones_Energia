@@ -26,6 +26,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
     "starwars-names": "^1.6.0",
+    "use-debounce": "^8.0.4",
     "uuid4": "^2.0.3",
     "web-vitals": "^2.1.4"
   },
