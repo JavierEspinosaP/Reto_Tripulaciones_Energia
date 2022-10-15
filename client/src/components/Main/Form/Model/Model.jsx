@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Downshift from 'downshift';
 import { menuStyles, comboboxStyles } from '../shared';
 import Input from '@mui/material/Input';
@@ -13,18 +13,27 @@ function Model(props) {
   const modelsData = props.data
   const searchBrandData = props.search
 
-  const [searchModelData, setSearchModelData] = useState([])
+  const [searchModelData, setSearchModelData] = useState('')
 
-  const [data, setData] = useContext(dataContext)
+  const [data, setData] = useState({})
 
+  console.log(data);
+
+  useEffect(() => {
+  
   setData({
     brand:searchBrandData,
     model:searchModelData
   })
+  console.log(data);
+  }, [searchModelData])
+  
+
   return (
     <div>
-      {data.model.length == 0 ?<Downshift
-        onChange={(selection) => selection ? setData({model: selection}) : null}
+      {searchModelData.length == 0?
+      <Downshift
+        onChange={(selection) => selection ? setSearchModelData(selection) : null}
 
         itemToString={(item) => (item ? item : '')}
       >
@@ -71,7 +80,8 @@ function Model(props) {
             </ul>
           </div>
         )}
-      </Downshift>:<Price model={modelsData} brand={searchBrandData}/>}
+      </Downshift>:<Price data={data}/>
+      }
     </div>
   )
 }
