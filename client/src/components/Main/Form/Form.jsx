@@ -6,7 +6,6 @@ import List from '@mui/material/List';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { useDebouncedCallback } from 'use-debounce';
 import Model from './Model'
 
 // const items = [
@@ -22,7 +21,6 @@ const Form = () => {
   const [brandData, setBrandData] = useState([])
   const [modelData, setModelData] = useState([])
   const [searchBrandData, setSearchBrandData] = useState([])
-  const [searchModelData, setSearchModelData] = useState([])
 
 
 
@@ -64,7 +62,7 @@ const Form = () => {
 
       <Link to={"/"}><Button className="btn-back" variant="contained">Volver</Button></Link>
 
-      {searchBrandData.length == 0 ? <Downshift
+      {searchBrandData.length === 0 ? <Downshift
         onChange={(selection) => selection ? setSearchBrandData(selection) : null}
         itemToString={(item) => (item ? item : '')}
       >

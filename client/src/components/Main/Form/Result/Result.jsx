@@ -26,13 +26,14 @@ function Result(props) {
       console.log(consumption);
     }
     fetchResult()
+    // eslint-disable-next-line
   }, [])
 
 
 
   return (
     <div>
-      {status.status==200?<p>ESTO ES EL CONSUMO: {consumption}</p>:null}
+      {status.status===200?<p>ESTO ES EL CONSUMO: {consumption}</p>:null}
     </div>
   )
 }
