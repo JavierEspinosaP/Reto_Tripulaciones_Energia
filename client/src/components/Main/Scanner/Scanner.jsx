@@ -46,7 +46,7 @@ const Example = () => {
   fetchData()
   console.log(response);
 
-
+// eslint-disable-next-line
   }, [result])
   
 

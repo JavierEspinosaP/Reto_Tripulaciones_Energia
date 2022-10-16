@@ -25,12 +25,13 @@ function Model(props) {
     model:searchModelData
   })
   console.log(data);
+  // eslint-disable-next-line
   }, [searchModelData])
   
 
   return (
     <div>
-      {searchModelData.length == 0?
+      {searchModelData.length === 0?
       <Downshift
         onChange={(selection) => selection ? setSearchModelData(selection) : null}
 
