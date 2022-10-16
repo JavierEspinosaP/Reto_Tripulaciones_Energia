@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import Result from '../Result'
 
 function Price(props) {
@@ -16,7 +16,6 @@ function Price(props) {
     event.preventDefault()
     const price = event.target.price.value
     const usage = event.target.usage.value
-    const newData = { price, usage }
     setData({ brand, model, price, usage })
     console.log(data)
   }
@@ -25,7 +24,7 @@ function Price(props) {
 
 
   return (
-    <div>{data.price == undefined ?
+    <div>{data.price === undefined ?
       <form onSubmit={submit}>
         <input type="text" name="price" placeholder="Introduce precio de producto" />
         <input type="text" name="usage" placeholder="Introduce tiempo de uso" />

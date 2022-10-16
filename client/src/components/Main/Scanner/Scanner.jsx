@@ -14,6 +14,7 @@ const Example = () => {
     height: 240,
     width: 320
   };
+  // eslint-disable-next-line
   let regex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
   const [result, setResult] = useState({});
   const [response, setResponse] = useState({})
