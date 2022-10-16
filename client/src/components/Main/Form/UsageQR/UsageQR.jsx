@@ -4,8 +4,6 @@ import Button from '@mui/material/Button';
 
 function UsageQR(props) {
 
-
-  
   const brand = props.data.Brand
   const model = props.data.Model
   return (
