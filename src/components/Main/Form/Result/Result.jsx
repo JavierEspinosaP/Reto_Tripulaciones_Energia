@@ -14,6 +14,7 @@ function Result(props) {
   const [consumption, setConsumption] = useState({})
   const [status, setStatus] = useState([])
   const {setDataSession} = useContext(dataContext)
+  const apiKey = process.env.REACT_APP_API_KEY
 
 
   useEffect(() => {
@@ -27,14 +28,15 @@ function Result(props) {
         model: model
       }
       console.log(data);
-      const resResult = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/calculate?session_id=${id}&hours_day=${usage}&brand=${brand}&model=${model}`, {
+      const resResult = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/calculate?api_key=${apiKey}&session_id=${id}&brand=${brand}&model=${model}&time=${usage}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         }
       })
       setStatus(resResult)
-      console.log(resResult);
+      // console.log(resResult.request.responseURL);
+      console.log(resResult.data);
       setConsumption(resResult.data.Cost)
       console.log(consumption);
     }
@@ -47,7 +49,7 @@ function Result(props) {
   return (
     <div>
       {status.status===200?<div>
-      <p>ESTO ES EL CONSUMO: {consumption}</p>
+      <p>Consumo del producto: {consumption} €/Mes</p>
       <Link to={"/advance"}><Button className="btn-back" variant="contained">Acceder a avanzado</Button></Link>
       </div>
       :null

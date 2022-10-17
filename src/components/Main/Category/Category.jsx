@@ -1,20 +1,30 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
+import Form from '../Form'
+import {useForm} from 'react-hook-form'
 
 function Category() {
+
+
+  const [category, setCategory] = useState([])
+  const value = ["dishwasher", "washer"]
+
+
+  console.log(category);
+
+
   return (
     <div className='category'>
-      <Link to={"/form"}><a>Lavavajillas</a></Link>
-      <Link to={"/form"}><a>Lavadora/ secadora</a></Link>
-      <Link to={"/form"}><a>Televisores</a></Link>
-      <Link to={"/form"}><a>Monitores</a></Link>
-      <Link to={"/form"}><a>Frigoríficos y congeladores</a></Link>
-      <Link to={"/form"}><a>Aire acondicionado</a></Link>
-      <Link to={"/form"}><a>Hornos</a></Link>
-      <Link to={"/form"}><a>Campanas extractoras</a></Link>
-      <Link to={"/form"}><a>Calentadores</a></Link>
-      <Link to={"/form"}><a>Fuentes lumínicas</a></Link>
+      {category.length === 0?<div>
+      <button onClick={()=>{setCategory("dishwasher")}}>Lavavajillas</button>
+      <button onClick={()=>{setCategory("washer")}}>Lavadora/ secadora</button>
+      <button onClick={()=>{setCategory("tv/monitor")}}>Televisores y monitores</button>
+      <button onClick={()=>{setCategory("fridge/freezer")}}>Frigoríficos y congeladores</button>
+      <button onClick={()=>{setCategory("oven")}}>Hornos</button>
+      <button onClick={()=>{setCategory("range_hood")}}>Campanas extractoras</button>
+      <button onClick={()=>{setCategory("water_heater")}}>Calentadores</button>
+      <button onClick={()=>{setCategory("light")}}>Fuentes lumínicas</button></div>:<Form category={category}/>}
     </div>
   )
 }

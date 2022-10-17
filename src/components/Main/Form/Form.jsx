@@ -16,7 +16,7 @@ import Model from './Model'
 //   {value: 'banana'},
 // ]
 
-const Form = () => {
+const Form = (props) => {
 
 
   const [data, setData] = useState({})
@@ -24,14 +24,16 @@ const Form = () => {
   // const [modelData, setModelData] = useState([])
   const [searchBrandData, setSearchBrandData] = useState([])
   // const [searchId, setSearchId] = useState([])
-
+  const category = props.category
+  const apiKey = process.env.REACT_APP_API_KEY
 
 
   useEffect(() => {
 
     async function fetchData() {
       try {
-        const resDemo = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campana_extractora&${process.env.REACT_APP_API_KEY}`)
+        const resDemo = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=${category}&api_key=${apiKey}`)
+        console.log(resDemo);
         setData(await resDemo.data)
         setBrandData(await resDemo.data.Brand)
         // setModelData(await resDemo.data.Model_by_brand)

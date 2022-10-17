@@ -15,13 +15,14 @@ function AdvanceResult(props) {
   const [json, setJson] = useState([])
   const [rangeMax, setRangeMax] = useState(50);
   const [yRangeMax] = useState(500);
+  const apiKey = process.env.REACT_APP_API_KEY
 
 
   useEffect(() => {
 
     async function fetchResult() {
 
-      const resResult = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/advanced?session_id=${id}&months=${usage}&price=${price}`, {
+      const resResult = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/advanced?api_key=${apiKey}&session_id=${id}&months=${usage}&price=${price}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',

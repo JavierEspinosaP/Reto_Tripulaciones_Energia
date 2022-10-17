@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.1.2",
+    "dotenv": "^16.0.3",
     "downshift": "^6.0.5",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
