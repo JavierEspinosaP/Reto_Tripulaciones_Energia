@@ -1,22 +1,27 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect} from 'react'
 import Result from '../Result'
 
 function Price(props) {
 
   const brand = props.data.brand
   const model = props.data.model
+  const id = props.data.session_id
+
   console.log(brand);
 
 
-  const [data, setData] = useState(brand)
+  const [data, setData] = useState({})
 
+  useEffect(() => {
+    console.log(data)
 
+  }, [])
+  
 
   const submit = (event) => {
     event.preventDefault()
-    const price = event.target.price.value
     const usage = event.target.usage.value
-    setData({ brand, model, price, usage })
+    setData({id,usage,brand,model})
     console.log(data)
   }
 
@@ -24,9 +29,8 @@ function Price(props) {
 
 
   return (
-    <div>{data.price === undefined ?
+    <div>{Object.keys(data).length === 0?
       <form onSubmit={submit}>
-        <input type="text" name="price" placeholder="Introduce precio de producto" />
         <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
         <input type="submit" value="" />
       </form>

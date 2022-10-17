@@ -9,22 +9,24 @@ import Price from '../Price'
 
 function Model(props) {
 
-  const modelsData = props.data
+  // const modelsData = props.data
+  const dataProps = props.data
   const searchBrandData = props.search
 
   const [searchModelData, setSearchModelData] = useState('')
 
   const [data, setData] = useState({})
 
-  console.log(data);
 
   useEffect(() => {
   
   setData({
     brand:searchBrandData,
-    model:searchModelData
+    model:searchModelData,
+    session_id:dataProps.Session_id
   })
   console.log(data);
+
   // eslint-disable-next-line
   }, [searchModelData])
   
@@ -58,7 +60,7 @@ function Model(props) {
             <ul {...getMenuProps()} style={menuStyles}>
               {isOpen &&
                 // items aqui es donde se cargan los datos para el autocompletado
-                modelsData[searchBrandData]
+                dataProps.Model_by_brand[searchBrandData]
                   .filter((item) => !inputValue || item.includes(inputValue.toLowerCase()))
                   .map((item, index) => (
                     <List

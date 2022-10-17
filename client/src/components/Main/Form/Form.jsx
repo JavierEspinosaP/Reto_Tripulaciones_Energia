@@ -18,9 +18,12 @@ import Model from './Model'
 
 const Form = () => {
 
+
+  const [data, setData] = useState({})
   const [brandData, setBrandData] = useState([])
-  const [modelData, setModelData] = useState([])
+  // const [modelData, setModelData] = useState([])
   const [searchBrandData, setSearchBrandData] = useState([])
+  // const [searchId, setSearchId] = useState([])
 
 
 
@@ -28,22 +31,19 @@ const Form = () => {
 
     async function fetchData() {
       try {
-
-        const resDemo = await axios.get("http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campana_extractora", {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-          },
-        })
-
+        const resDemo = await axios.get("http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campana_extractora")
+        setData(await resDemo.data)
         setBrandData(await resDemo.data.Brand)
-        setModelData(await resDemo.data.Model_by_brand)
+        // setModelData(await resDemo.data.Model_by_brand)
+        // setSearchId(await resDemo.data.Session_id)
+        // console.log(brandData);
 
         // console.log(resDemo.data.Model_by_brand['whirlpool']);
       }
       catch (e) {
-        setBrandData(["error"])
-        setModelData(["error"])
+        console.log(e);
+        // setBrandData(["error"])
+        // setModelData(["error"])
       }
     }
     fetchData()
@@ -109,7 +109,7 @@ const Form = () => {
             </ul>
           </div>
         )}
-      </Downshift> : <Model data={modelData} search={searchBrandData}/>}
+      </Downshift> : <Model data={data} search={searchBrandData}/>}
 
     </div>
 
