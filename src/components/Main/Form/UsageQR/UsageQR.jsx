@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Result from '../Result'
@@ -11,11 +11,6 @@ function UsageQR(props) {
 
   const [data, setData] = useState({})
 
-  useEffect(() => {
-    console.log(data)
-// eslint-disable-next-line no-alert
-  }, [])
-  
 
   const submit = (event) => {
     event.preventDefault()

@@ -28,7 +28,7 @@ function Model(props) {
   console.log(data);
 
   // eslint-disable-next-line
-  }, [searchModelData])
+  }, [searchModelData])// eslint-disable-next-line
   
 
   return (
