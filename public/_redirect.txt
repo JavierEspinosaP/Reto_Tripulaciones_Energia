@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/api/*"
+  from = "http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/api/*"
   to = "http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/"
   status = 200
   force = true # COMMENT: ensure that we always redirect
