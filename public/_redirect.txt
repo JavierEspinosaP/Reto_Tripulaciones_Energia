@@ -1,1 +1,6 @@
-/api/* http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/:splat 200
+[[redirects]]
+  from = "/api/*"
+  to = "http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+
