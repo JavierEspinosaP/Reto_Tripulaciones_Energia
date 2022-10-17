@@ -1,0 +1,16 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.camaraContainer{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.result{
+    position: absolute;
+    top: 600px
+}
