@@ -13,7 +13,7 @@ function Result(props) {
 
   const [consumption, setConsumption] = useState({})
   const [status, setStatus] = useState([])
-  const {dataSession, setDataSession} = useContext(dataContext)
+  const {setDataSession} = useContext(dataContext)
 
 
   useEffect(() => {

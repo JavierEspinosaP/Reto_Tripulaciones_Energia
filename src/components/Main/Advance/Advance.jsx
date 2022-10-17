@@ -7,7 +7,7 @@ import AdvanceResult from './AdvanceResult'
 function Advance() {
 
 const [data, setData] = useState({})
-const {dataSession, setDataSession} = useContext(dataContext)
+const {dataSession} = useContext(dataContext)
 
 const submit = (event) => {
   event.preventDefault()

@@ -11,10 +11,10 @@ function AdvanceResult(props) {
 
   const [consumption, setConsumption] = useState({})
   const [status, setStatus] = useState([])
-  const {dataSession, setDataSession} = useContext(dataContext)
+  const {dataSession} = useContext(dataContext)
   const [json, setJson] = useState([])
   const [rangeMax, setRangeMax] = useState(50);
-  const [yRangeMax, setYRangeMax] = useState(500);
+  const [yRangeMax] = useState(500);
 
 
   useEffect(() => {

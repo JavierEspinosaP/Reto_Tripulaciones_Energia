@@ -13,7 +13,7 @@ function UsageQR(props) {
 
   useEffect(() => {
     console.log(data)
-
+// eslint-disable-next-line no-alert
   }, [])
   
 

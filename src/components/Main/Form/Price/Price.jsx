@@ -14,7 +14,7 @@ function Price(props) {
 
   useEffect(() => {
     console.log(data)
-
+// eslint-disable-next-line no-alert
   }, [])
   
 
