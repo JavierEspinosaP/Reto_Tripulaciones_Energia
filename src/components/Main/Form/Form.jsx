@@ -31,7 +31,7 @@ const Form = () => {
 
     async function fetchData() {
       try {
-        const resDemo = await axios.get("http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campana_extractora")
+        const resDemo = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=campana_extractora&${process.env.REACT_APP_API_KEY}`)
         setData(await resDemo.data)
         setBrandData(await resDemo.data.Brand)
         // setModelData(await resDemo.data.Model_by_brand)
