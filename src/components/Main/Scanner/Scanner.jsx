@@ -38,7 +38,7 @@ const Example = () => {
 
     const id = url.slice(30, 37)
     console.log(id);
-    const resDemo = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/check_qr?id=${id}`)
+    const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/check_qr?id=${id}`)
     console.log();
     setResponse(resDemo)
   }    
