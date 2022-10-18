@@ -2,10 +2,13 @@
 @import '../utils/mixins.scss';
 
 .category {
-    height: 400px;
+    background-color: #FAFAFA;
+    height: 100vh;
+    width: 100%;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+    flex-flow: column wrap;
+    justify-content:space-evenly;
+    align-items: center;
 
     &>a {
         display: flex;
@@ -22,4 +25,259 @@
         border: solid 1px black;
     }
 
+}
+
+.title-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 85%;
+}
+
+.back-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 20px;
+    width: 10px;
+    background-image: url(../../../public/back.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.title-cat {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.cat-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    background-color: #FAFAFA;
+    height: 80%;
+    width: 100%;
+}
+
+.dishwasher {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/dishwasher.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.washer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/washer.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.tv-monitor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/tv.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.fridge-freezer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/fridge.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 65.57px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.oven {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/oven.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.range-hood {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/range.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.water-heater {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/heater.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 35.57px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.light {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    width: 150px;
+    height: 130px;
+    border-radius: 30px;
+    border: 2px solid #025197;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &> figure {
+        background-image: url(../../../public/light.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 31.86px;
+        width: 31.86px;
+    }
+    &> p {
+        margin:0;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+
+.space-container2 {
+    height: 0px;
 }
