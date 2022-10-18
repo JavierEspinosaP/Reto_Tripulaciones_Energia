@@ -4,16 +4,32 @@ import { dataContext }  from '../../../../context/dataContext';
 
 function Price(props) {
 
-  const data = props.search
+  const data = props.search 
+  const [dataSession, setDataSession] = useState({})  
 
-  // session_id: data.Session_id,
-  // brand1 : searchBrandData,
-  // model1 : searchModelData,
-  // brand2 : searchBrandData2,
-  // model2 : searchModelData2
 
-  const [dataSession, setDataSession] = useState({})
+  console.log(data);
+  
 
+
+  let type = ''
+
+  useEffect(() => {
+    setDataSession(data)
+    switch(data.consumption_type){
+      case 'cycle':
+      type = "Ciclos/semana"
+      break;
+      case 'hours':
+      type = 'Horas al día'
+      break;
+      case 'hours_week':
+      type = 'Horas a la semana'
+      break;
+    }
+
+  }, [data])
+  
 
 
 
@@ -28,8 +44,10 @@ function Price(props) {
 
 console.log(dataSession);
   return (
-  <div>{Object.keys(dataSession).length === 0?
+  <div>{Object.keys(dataSession).length === 0 || data.consumption_type != 'permanent'?
       <form onSubmit={submit}>
+        {console.log(dataSession)}
+        <label htmlFor="">Introduce tiempo de uso en {type}</label>
         <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
         <input type="submit" value="" />
       </form>
