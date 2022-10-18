@@ -54,16 +54,35 @@ const Form = (props) => {
   }, [])
 
 
-  
+  function renderSwitch(category) {
+    switch(category) {
+      case 'dishwasher':
+        return 'Lavavajillas';
+      case 'washer':
+        return 'Lavadoras';
+      case 'tv/monitor':
+        return 'Televisores';
+      case 'fridge/freezer':
+        return 'Frigoríficos';
+      case 'light':
+        return 'Iluminación';
+      case 'water_heater':
+        return 'Calentadores';
+      case 'oven':
+        return 'Hornos';
+      case 'range_hood':
+        return 'Campanas';
+    }
+  }
 
   // setModelData(await resDemo.data.Model_by_brand[searchBrandData])
 
 
 
   return (
-    <div className="formContainer">
+    <div className="form">
 
-      <Link to={"/"}><Button className="btn-back" variant="contained">Volver</Button></Link>
+      <p className="name-device">{renderSwitch(category)}</p>
 
       {searchBrandData.length === 0 ? <Downshift
         onChange={(selection) => selection ? setSearchBrandData(selection) : null}
@@ -82,8 +101,8 @@ const Form = (props) => {
           isOpen,
         }) => (
           <div style={comboboxStyles}>
-            <label {...getLabelProps()}>Introduce marca:</label>
-            <Input {...getInputProps()} />
+            <label {...getLabelProps()}></label>
+            <input className="input" {...getInputProps()} placeholder="marca" />
             <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
               &#8595;
             </Button>
@@ -113,7 +132,7 @@ const Form = (props) => {
           </div>
         )}
       </Downshift> : <Model data={data} search={searchBrandData}/>}
-
+      <div className="space"></div>
     </div>
 
   )

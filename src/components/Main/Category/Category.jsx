@@ -18,7 +18,7 @@ function Category() {
     <div className='category'>
       <div className="title-container">
         <Link to={"/"}><a className="back-btn"></a></Link>
-        <p className="title-cat">Elige la categoría</p>
+        <p className="title-cat"></p>
         <div></div>
       </div>
       {category.length === 0?<div className="cat-container">

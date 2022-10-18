@@ -1,14 +1,33 @@
 @import '../utils/variables.scss';
 @import '../utils/mixins.scss';
 
-.formContainer{
+.form {
     height: 80vh;
     display:flex;
     flex-direction:column;
+    justify-content:flex-start;
     align-items:center;
-    justify-content:center;
 }
 
-.Downshift{
-    margin: 30px
+.name-device {
+    position: relative;
+    top:-60px;
+    font-family: $font-head;
+    font-size: 24px;
+}
+
+
+.input {
+    position:relative;
+    top:-25px;
+    width:250px;
+    height:70px;
+    border-radius:40px;
+    padding: 12px, 24px, 12px, 24px;
+    background-color: $color-pri-5;
+    border: none;
+    outline: none;
+    font-family: $font-inter;
+    font-size: 20px;
+    padding-left: 20px;
 }
