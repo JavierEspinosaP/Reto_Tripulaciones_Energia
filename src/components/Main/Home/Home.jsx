@@ -5,6 +5,7 @@ class Home extends Component {
   render() {
     return <div className="home">
       <div className="home-top-container">
+        <div className="space"></div>
         <figure className="logo"></figure>
         <figure className="cover-container"></figure>
         <p className="intro-text">Calcula el consumo de los electrodomésticos escaneando el código QR y ahorra en tu gasto energético.</p>
