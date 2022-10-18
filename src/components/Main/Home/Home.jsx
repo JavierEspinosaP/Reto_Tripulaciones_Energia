@@ -1,12 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
 
 class Home extends Component {
   render() {
     return <div className="home">
-      <Link className="btn-link"  to={"/scanner"}><Button sx={{margin: 3}} variant="contained">Scanner QR</Button></Link>
-      <Link className="btn-link"  to={"/category"}><Button sx={{margin: 3}} variant="contained">Ingresa manualmente</Button></Link>
+      <div className="home-top-container">
+        <figure className="logo"></figure>
+        <figure className="cover-container"></figure>
+        <p className="intro-text">Calcula el consumo de los electrodomésticos escaneando el código QR y ahorra en tu gasto energético.</p>
+        <div className="green-container">
+          <p className="intro-sub-text">SÉ MÁS GREEN</p>
+          <figure className="leaf"></figure>
+        </div>
+      </div>
+      <div className="home-button-container">
+        <Link className="btn-link-scan" to={"/scanner"}><button><div></div><p>Escanea el código QR</p><section></section></button></Link>
+        <p className="text-select">O si no lo tienes a disposición</p>
+        <Link className="btn-link-manual" to={"/form"}><button>Introduce marca y modelo</button></Link>
+      </div>
     </div>;
   }
 }

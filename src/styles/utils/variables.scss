@@ -1,40 +1,42 @@
-//TIPOGRAFÍAS
-$heading: 'Secuela', sans-serif;
-$paragraph: 'Roboto', sans-serif;
+//FUENTES
+$font-head: 'Secuela', sans-serif;
+$font-parag: 'Roboto', sans-serif;
+$font-advent: 'Advent Pro', sans-serif;
+$font-inter: 'Inter', sans-serif;
 
-//PRIMARIOS
-$color-primary-ligthest:#CDE7FE;
-$color-primary-ligther:#68B7FD;
-$color-primary:#0488FB;
-$color-primary-darker:#025197;
-$color-primary-darkest:#011B32;
+//COLORES PRIMARIOS
+$color-pri-1:#011B32;
+$color-pri-2:#025197;
+$color-pri-3:#0488FB;
+$color-pri-4:#68B7FD;
+$color-pri-5:#CDE7FE;
 
-//SECUNDARIOS
-$color-secondary-ligthest:#FAEDD1;
-$color-secondary-ligther:#EFC876;
-$color-secondary:#E4A31B;
-$color-secondary-darker:#8B620E;
-$color-secondary-darkest:#2E2105;
+//COLORES SECUNDARIOS
+$color-sec-1:#2E2105;
+$color-sec-2:#8B620E;
+$color-sec-3:#E4A31B;
+$color-sec-4:#EFC876;
+$color-sec-5:#FAEDD1;
 
-//SEMÁNTICOS
-$color-green:#91E54D;
-$color-green-darker:#61B71B;
-$color-green-darkest:#478514;
-$color-blue:#9CE2FC;
-$color-blue-darker:#39C6F9;
-$color-blue-darkest:#0693C6;
-$color-yellow:#FFD970;
-$color-yellow-darker:#FFBD0A;
-$color-yellow-darkest:#A37700;
-$color-red:#FF6B66;
-$color-red-darker:#FF342D;
-$color-red-darkest:#990500;
+//COLORES SEMÁNTICOS
+$color-green-1:#478514;
+$color-green-2:#61B71B;
+$color-green-3:#91E54D;
+$color-blue-1:#0693C6;
+$color-blue-2:#39C6F9;
+$color-blue-3:#9CE3FC;
+$color-gold-1:#A37700;
+$color-gold-2:#FFBD0A;
+$color-gold-3:#FFD970;
+$color-red-1:#990500;
+$color-red-2:#FF342D;
+$color-red-3:#FF6B66;
 
-//NEUTROS
-$color-neutral-0:#1A1A1A;
-$color-neutral-1:#333333;
-$color-neutral-2:#666666; 
-$color-neutral-3:#999999;
-$color-neutral-4:#CCCCCC;
-$color-neutral-5:#E6E6E6; 
-$color-neutral-6:#F2F3F1;
+//COLORES NEUTROS
+$color-neutro-1:#1A1A1A;
+$color-neutro-2:#333333;
+$color-neutro-3:#666666 ;
+$color-neutro-4:#999999;
+$color-neutro-5:#CCCCCC;
+$color-neutro-6:#E6E6E6 ;
+$color-neutro-7:#F2F3F1;
