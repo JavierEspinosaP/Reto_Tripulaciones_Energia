@@ -22,7 +22,7 @@ function AdvanceResult(props) {
 
     async function fetchResult() {
 
-      const resResult = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/advanced?api_key=${apiKey}&session_id=${id}&months=${usage}&price=${price}`, {
+      const resResult = await axios.get(`https://whispering-river-01987.herokuapp.com/advanced?api_key=${apiKey}&session_id=${id}&months=${usage}&price=${price}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',

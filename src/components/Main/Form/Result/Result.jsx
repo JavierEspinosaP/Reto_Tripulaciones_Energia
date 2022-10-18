@@ -28,7 +28,7 @@ function Result(props) {
         model: model
       }
       console.log(data);
-      const resResult = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/calculate?api_key=${apiKey}&session_id=${id}&brand=${brand}&model=${model}&time=${usage}`, {
+      const resResult = await axios.get(`https://whispering-river-01987.herokuapp.com/calculate?api_key=${apiKey}&session_id=${id}&brand=${brand}&model=${model}&time=${usage}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',

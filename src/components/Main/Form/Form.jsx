@@ -32,7 +32,7 @@ const Form = (props) => {
 
     async function fetchData() {
       try {
-        const resDemo = await axios.get(`http://desafioapitest-env.eba-kma62rdj.us-east-2.elasticbeanstalk.com/category?category=${category}&api_key=${apiKey}`)
+        const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/category?category=${category}&api_key=${apiKey}`)
         console.log(resDemo);
         setData(await resDemo.data)
         setBrandData(await resDemo.data.Brand)
