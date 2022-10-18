@@ -32,6 +32,7 @@ const Form = (props) => {
 
     async function fetchData() {
       try {
+        console.log(category);
         const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/category?category=${category}&api_key=${apiKey}`)
         console.log(resDemo);
         setData(await resDemo.data)

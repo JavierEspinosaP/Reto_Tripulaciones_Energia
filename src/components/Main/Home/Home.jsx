@@ -16,7 +16,7 @@ class Home extends Component {
       <div className="home-button-container">
         <Link className="btn-link-scan" to={"/scanner"}><button><div></div><p>Escanea el código QR</p><section></section></button></Link>
         <p className="text-select">O si no lo tienes a disposición</p>
-        <Link className="btn-link-manual" to={"/form"}><button>Introduce marca y modelo</button></Link>
+        <Link className="btn-link-manual" to={"/category"}><button>Introduce marca y modelo</button></Link>
       </div>
     </div>;
   }
