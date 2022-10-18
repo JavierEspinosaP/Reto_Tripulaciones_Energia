@@ -1,25 +1,36 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Result from '../Result';
-import {dataContext} from '../../../../context/dataContext';
 
 function UsageQR(props) {
 
-  const [dataSession] = useContext(dataContext)
-  const brand = props.data.Brand
-  const model = props.data.Model
-  const id = props.data.Session_id
+  let brand1 = ''
+  let model1 = ''
+  let brand2 = ''
+  let model2 = ''
+  let session_id = ''  
+
+  useEffect(() => {
+  brand1 = props.data.brand1
+  model1 = props.data.model1
+  brand2 = props.data.brand2
+  model2 = props.data.model2
+  session_id = props.data.session_id  
+
+  }, [props])
+  
+
+
+  console.log(props);
 
   const [data, setData] = useState({})
 
-
-  console.log(brand, model, id);
   const submit = (event) => {
     event.preventDefault()
     const usage = event.target.usage.value
-    setData({id,usage,brand,model})
-    console.log(data)
+    setData({session_id, usage, brand1, model1, brand2, model2})
+    // console.log(data)
   }
 
 
@@ -27,14 +38,14 @@ function UsageQR(props) {
   return (
     <div>
       <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
-      <p>{brand}</p>
-      <p>{model}</p>
-     {dataSession.length < 2?
+      {/* <p>{brand}</p>
+      <p>{model}</p> */}
+     {/* {dataSession.length < 2? */}
       <form onSubmit={submit}>
         <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
         <input type="submit" value="" />
       </form>
-      :<Result data={data}/>}
+      :<Result data={data}/>
     </div>
   )
 }
