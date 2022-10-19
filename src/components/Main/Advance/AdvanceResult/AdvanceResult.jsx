@@ -18,6 +18,7 @@ function AdvanceResult(props) {
   const [yRangeMax, setYRangeMax] = useState(500);
   const [dataChart, setDataChart] = useState({})
   const apiKey = process.env.REACT_APP_API_KEY
+  const [initialPrice, setInitialPrice] = useState([])
 
 
 
@@ -43,6 +44,14 @@ function AdvanceResult(props) {
           endValue = endValue2
         }
 
+
+        if(price>price2){
+          setInitialPrice(price)
+        }
+        else{
+          setInitialPrice(price2)
+        }
+
         const statusOk = resResult.status
 
         setStatus(statusOk)
@@ -61,9 +70,14 @@ function AdvanceResult(props) {
 
         console.log(Number(price));
 
+        const toHSLObject = hslStr => {
+          const [hue, saturation, lightness] = hslStr.match(/\d+/g).map(Number);
+          return { hue, saturation, lightness };
+        };
+
         const initialData1 = {
           id: resResult.data.brand1,
-          "color": "hsl(285, 70%, 50%)",
+          color: toHSLObject('hsl(127, 100%, 50%)'),
           data: [{
             x: 0,
             y: Number(price)
@@ -72,7 +86,7 @@ function AdvanceResult(props) {
 
         const initialData2 = {
           id: resResult.data.brand2,
-          "color": "hsl(255, 70%, 50%)",
+          color: toHSLObject('hsl(127, 100%, 50%)'),
           data: [{
             x: 0,
             y: Number(price2)
@@ -123,8 +137,8 @@ function AdvanceResult(props) {
   return (
     <div>
       {status === 200 ? <div className="chartContainer">
-        <MyResponsiveLine axis={dataChart}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
-      </div> : null}
+        <MyResponsiveLine initialPrice={initialPrice}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
+      </div> :"null"}
 
 
     </div>

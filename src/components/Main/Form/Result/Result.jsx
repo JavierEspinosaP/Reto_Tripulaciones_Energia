@@ -47,6 +47,7 @@ function Result(props) {
       setConsumption2(resResult.data.consumption2)
       setLabel1(resResult.data.label1)
       setLabel2(resResult.data.label2)
+      setDataSession(resResult.data.session_id)
       console.log(cost1);
       console.log(cost2);
       console.log(consumption1);

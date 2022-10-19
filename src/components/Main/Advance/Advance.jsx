@@ -31,7 +31,7 @@ function Advance() {
           <div>
             <form onSubmit={submit}>
               <input type="text" name="usage" placeholder="Introduce meses de uso" />
-              <input type="text" name="price1" placeholder="Introduce precio del segundo producto" />
+              <input type="text" name="price1" placeholder="Introduce precio del primer producto" />
               <input type="text" name="price2" placeholder="Introduce precio del segundo producto" />
               <input type="submit" value="" />
             </form>
