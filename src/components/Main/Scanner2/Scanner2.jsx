@@ -23,6 +23,7 @@ const Example2 = (props) => {
   const [result, setResult] = useState({});
   const [response, setResponse] = useState({})
   const apiKey = process.env.REACT_APP_API_KEY
+  const {dataContext, setDataContext} = useContext(dataContext)
 
   const handleScan = (result) => {
 
@@ -51,9 +52,10 @@ const Example2 = (props) => {
     console.log(id);
     console.log(qr1);
     console.log(apiKey);
-    const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/check_qr?api_key=${apiKey}&product_Id1=${id}&product_Id2=${qr1}`)
+    const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/check_qr?api_key=${apiKey}&productId1=${id}&productId2=${qr1}`)
     setResponse(resDemo.data)
-
+    setDataContext(resDemo.data.session_id)
+    console.log(dataContext);
   console.log(resDemo);    
   }    
   }

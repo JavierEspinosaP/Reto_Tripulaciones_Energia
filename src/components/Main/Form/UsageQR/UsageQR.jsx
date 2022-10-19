@@ -30,7 +30,7 @@ function UsageQR(props) {
     event.preventDefault()
     const usage = event.target.usage.value
     setData({session_id, usage, brand1, model1, brand2, model2})
-    // console.log(data)
+    console.log(data)
   }
 
 
