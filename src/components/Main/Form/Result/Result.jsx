@@ -62,7 +62,8 @@ function Result(props) {
           <div>Gasto kWh {consumption2} €/Mes</div>
         </div>
       </div>
-      <Link to={"/advance"}><Button className="btn-back" variant="contained">Acceder a avanzado</Button></Link>
+      
+      <Link className="go-advance" to={"/advance"}><button><div></div><p>Gráfico de consumo</p><section></section></button></Link>
       </div>
       :null
       }

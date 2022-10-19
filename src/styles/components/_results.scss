@@ -42,7 +42,7 @@
         text-align: center;
         margin:5px;
         margin-right: 0;
-        padding: 15px 20px 15px 20px;
+        padding: 15px 25px 15px 25px;
         width: 110px;
         background: #91E54D;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -74,4 +74,59 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 8px;
     }
+}
+
+.go-advance {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+    &> button{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $color-pri-2;
+        color:white;
+        height: 48px;
+        width: 280px;
+        border: none;
+        border-radius: 24px;
+        box-shadow: 3px 4px 3px 1px rgba(0, 0, 0, 0.65);
+        &> p{
+            margin:0;
+        }
+        &> div{
+            background-image: url(../../../public/diagram.png);
+            background-size: contain;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.go-advance:active {
+    text-decoration: none;
+    &> button{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $color-pri-2;
+        color:white;
+        height: 48px;
+        width: 280px;
+        border: none;
+        border-radius: 24px;
+        box-shadow: 3px 4px 3px 1px rgba(0, 0, 0, 0.65) inset;
+        &> p{
+            margin:0;
+        }
+        &> div{
+            background-image: url(../../../public/diagram.png);
+            width: 24px;
+            height: 24px;
+        }
+    }
+    
 }
