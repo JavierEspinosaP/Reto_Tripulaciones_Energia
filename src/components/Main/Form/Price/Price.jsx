@@ -45,7 +45,7 @@ function Price(props) {
 
   console.log(dataSession);
   return (
-  <div>{isTrue == false && data.consumption_type != 'permanent'?
+  <div className="price-cont">{isTrue == false && data.consumption_type != 'permanent'?
 
       <form className="price" onSubmit={submit}>
         {console.log(isTrue)}  
