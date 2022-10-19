@@ -45,13 +45,13 @@ function Price(props) {
 
   console.log(dataSession);
   return (
-  <div>{isTrue == false && data.consumption_type != 'permanent'?
+  <div className="price-cont">{isTrue == false && data.consumption_type != 'permanent'?
 
-      <form onSubmit={submit}>
+      <form className="price" onSubmit={submit}>
         {console.log(isTrue)}  
-        <label htmlFor="">Introduce tiempo de uso en {type}</label>
-        <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
-        <input type="submit" value="" />
+        <label className="label" htmlFor="">Introduce tiempo de uso en {type}</label>
+        <input className="input" required={true} type="text" name="usage" placeholder="Introduce dato" />
+        <input className="btn-link-simple" type="submit" value="Visualiza la información" />
       </form>
       :<Result data={dataSession}/>}
     </div>

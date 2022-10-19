@@ -13,8 +13,12 @@ function Result(props) {
   const usage = props.data.usage
   const session_id = 'undefined'
   const {dataSession, setDataSession} = useContext(dataContext)
+  const [cost1, setCost1] = useState({})
+  const [cost2, setCost2] = useState({})
   const [consumption1, setConsumption1] = useState({})
   const [consumption2, setConsumption2] = useState({})
+  const [label1, setLabel1] = useState({})
+  const [label2, setLabel2] = useState({})
   const [status, setStatus] = useState([])
   
   const apiKey = process.env.REACT_APP_API_KEY
@@ -36,12 +40,19 @@ function Result(props) {
       setStatus(resResult)
       // console.log(resResult.request.responseURL);
       console.log(resResult.data);
-      setConsumption1(resResult.data.Cost1)
-      setConsumption2(resResult.data.Cost2)
-      setDataSession(resResult.data.session_id)
-      console.log(dataSession);
+
+      setCost1(resResult.data.Cost1)
+      setCost2(resResult.data.Cost2)
+      setConsumption1(resResult.data.consumption1)
+      setConsumption2(resResult.data.consumption2)
+      setLabel1(resResult.data.label1)
+      setLabel2(resResult.data.label2)
+      console.log(cost1);
+      console.log(cost2);
       console.log(consumption1);
       console.log(consumption2);
+      console.log(label1);
+      console.log(label2);
     }
     fetchResult()
     // eslint-disable-next-line      
@@ -52,11 +63,26 @@ function Result(props) {
 
 
   return (
-    <div>
-      {status.status===200?<div>
-      <p>Consumo del producto 1: {consumption1} €/Mes</p>
-      <p>Consumo del producto 2: {consumption2} €/Mes</p>
-      <Link to={"/advance"}><Button className="btn-back" variant="contained">Acceder a avanzado</Button></Link>
+    <div className="results-cont">
+      {status.status===200?<div className="results">
+      <div className="columns-container">
+        <div className="column1">
+          <p>Producto 1</p>
+          <section className="div-title1"> <p className="t1p1">{brand1.charAt(0).toUpperCase()+brand1.slice(1)}</p> <p className="t1p2">{model1}</p></section>
+          <div>Gasto kWh {cost1} €/Mes</div>
+          <div>Gasto/ciclo {consumption1} kWh</div>
+          <figure><img src={label1}/></figure>
+        </div>
+        <div className="column2">
+          <p>Producto 2</p>
+          <section className="div-title2"> <p className="t2p1">{brand2.charAt(0).toUpperCase()+brand2.slice(1)}</p> <p className="t2p2">{model2}</p></section>
+          <div>Gasto kWh {cost2}{} €/Mes</div>
+          <div>Gasto/ciclo {consumption2} kWh</div>
+          <figure><img src={label2}/></figure>
+        </div>
+      </div>
+      
+      <Link className="go-advance" to={"/advance"}><button><div></div><p>Gráfico de consumo</p><section></section></button></Link>
       </div>
       :null
       }
