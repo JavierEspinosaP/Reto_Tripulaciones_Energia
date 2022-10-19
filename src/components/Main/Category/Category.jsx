@@ -14,15 +14,18 @@ function Category() {
 
   return (
     <div className='category'>
-      {category.length === 0?<div>
-      <button onClick={()=>{setCategory("dishwasher")}}>Lavavajillas</button>
-      <button onClick={()=>{setCategory("washer")}}>Lavadora/ secadora</button>
-      <button onClick={()=>{setCategory("tv/monitor")}}>Televisores y monitores</button>
-      <button onClick={()=>{setCategory("fridge/freezer")}}>Frigoríficos y congeladores</button>
-      <button onClick={()=>{setCategory("oven")}}>Hornos</button>
-      <button onClick={()=>{setCategory("range_hood")}}>Campanas extractoras</button>
-      <button onClick={()=>{setCategory("water_heater")}}>Calentadores</button>
-      <button onClick={()=>{setCategory("light")}}>Fuentes lumínicas</button></div>:<Form category={category}/>}
+      {category.length === 0?<div className="cat-container">
+      <Link to={"/"}><a className="back-btn"></a></Link>
+      <button className="dishwasher" onClick={()=>{setCategory("dishwasher")}}><figure></figure><p>Lavavajillas</p></button>
+      <button className="washer" onClick={()=>{setCategory("washer")}}><figure></figure><p>Lavadoras</p></button>
+      <button className="tv-monitor" onClick={()=>{setCategory("tv/monitor")}}><figure></figure><p>Televisores y monitores</p></button>
+      <button className="fridge-freezer" onClick={()=>{setCategory("fridge/freezer")}}><figure></figure><p>Frigoríficos</p></button>
+      <button className="light" onClick={()=>{setCategory("light")}}><figure></figure><p>Iluminación</p></button>
+      <button className="water-heater" onClick={()=>{setCategory("water_heater")}}><figure></figure><p>Calderas y calentadores</p></button>
+      <button className="oven" onClick={()=>{setCategory("oven")}}><figure></figure><p>Hornos</p></button>
+      <button className="range-hood" onClick={()=>{setCategory("range_hood")}}><figure></figure><p>Campanas</p></button>
+      </div>:<Form category={category}/>}
+      <div className="space-container2"></div>
     </div>
   )
 }

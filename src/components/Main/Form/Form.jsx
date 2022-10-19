@@ -88,15 +88,40 @@ const Form = (props) => {
 
 
 
+
+  function renderSwitch(category) {
+    switch(category) {
+      case 'dishwasher':
+        return 'Lavavajillas';
+      case 'washer':
+        return 'Lavadoras';
+      case 'tv/monitor':
+        return 'Televisores';
+      case 'fridge/freezer':
+        return 'Frigoríficos';
+      case 'light':
+        return 'Iluminación';
+      case 'water_heater':
+        return 'Calentadores';
+      case 'oven':
+        return 'Hornos';
+      case 'range_hood':
+        return 'Campanas';
+    }
+  }
   // setModelData(await resDemo.data.Model_by_brand[searchBrandData])
 
 
 
   return (
-    <div className="formContainer">
+    <div className="form">
 
-      <Link to={"/"}><Button className="btn-back" variant="contained">Volver</Button></Link>
-
+      
+      <div className="header-container">
+        <Link to={"/"}><a className="back-btn"></a></Link>
+        <p className="device">{renderSwitch(category)}</p>
+        <div className="space"></div>
+      </div>
       {searchModelData2.length === 0  ? <div>
         <Downshift
           onChange={(selection) => selection ? setSearchBrandData(selection) : null}
@@ -114,9 +139,9 @@ const Form = (props) => {
             selectedItem,
             isOpen,
           }) => (
-            <div style={comboboxStyles}>
-              <label {...getLabelProps()}>Introduce marca:</label>
-              <Input {...getInputProps()} />
+            <div className="input-container" >
+              <label {...getLabelProps()}></label>
+              <Input className="input" placeholder='Marca producto 1' {...getInputProps()} />
               <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
                 &#8595;
               </Button>
@@ -163,9 +188,9 @@ const Form = (props) => {
             selectedItem,
             isOpen,
           }) => (
-            <div style={comboboxStyles}>
-              <label {...getLabelProps()}>Introduce modelo:</label>
-              <Input {...getInputProps()} />
+            <div className="input-container">
+              <label {...getLabelProps()}></label>
+              <Input className="input" placeholder='Modelo producto 1' {...getInputProps()} />
               <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
                 &#8595;
               </Button>
@@ -211,9 +236,9 @@ const Form = (props) => {
             selectedItem,
             isOpen,
           }) => (
-            <div style={comboboxStyles}>
-              <label {...getLabelProps()}>Introduce marca:</label>
-              <Input {...getInputProps()} />
+            <div className="input-container">
+              <label {...getLabelProps()}></label>
+              <Input className="input" placeholder='Marca producto 2' {...getInputProps()} />
               <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
                 &#8595;
               </Button>
@@ -260,9 +285,9 @@ const Form = (props) => {
             selectedItem,
             isOpen,
           }) => (
-            <div style={comboboxStyles}>
-              <label {...getLabelProps()}>Introduce modelo:</label>
-              <Input {...getInputProps()} />
+            <div className="input-container">
+              <label {...getLabelProps()}></label>
+              <Input className="input" placeholder='Marca producto 1' {...getInputProps()} />
               <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
                 &#8595;
               </Button>
