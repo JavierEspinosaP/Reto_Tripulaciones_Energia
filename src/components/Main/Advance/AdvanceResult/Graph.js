@@ -1,7 +1,7 @@
 // install (please make sure versions match peerDependencies)
 // yarn add @nivo/core @nivo/line
 import { ResponsiveLineCanvas } from "@nivo/line";
-// make sure parent container have a defined height when using
+// make sure parent container have a defined height when usingc
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
 // website examples showcase many properties,
@@ -60,6 +60,7 @@ export const MyResponsiveLine = ({ data, rangeMax, yRangeMax }) => {
       pointBorderColor={{ from: "serieColor" }}
       pointLabelYOffset={-12}
       useMesh={true}
+      isinteractive={false}
       gridXValues={[0, 20, 40, 60, 80, 100, 120]}
       gridYValues={[0, 10, 50, 200, 500, 1000]}
       legends={[

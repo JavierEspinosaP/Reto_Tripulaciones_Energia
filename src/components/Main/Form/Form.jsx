@@ -63,7 +63,7 @@ const Form = (props) => {
     if (data.Consumption_type == 'permanent') {
       searchDataObj = {
         consumption_type: data.Consumption_type,
-        session_id: data.Session_id,
+        // session_id: data.Session_id,
         brand1 : searchBrandData,
         model1 : searchModelData,
         brand2 : searchBrandData2,
@@ -74,7 +74,7 @@ const Form = (props) => {
     else{
     searchDataObj = {
       consumption_type: data.Consumption_type,
-      session_id: data.Session_id,
+      // session_id: data.Session_id,
       brand1 : searchBrandData,
       model1 : searchModelData,
       brand2 : searchBrandData2,
