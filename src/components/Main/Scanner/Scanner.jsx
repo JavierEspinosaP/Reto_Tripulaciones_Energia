@@ -46,14 +46,14 @@ const Example = () => {
   return (
     <div>
       {Object.keys(result).length === 0 ? <div className="camaraContainer">
-        <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
+        <Link to={"/"}><a className="btn-home" ></a></Link>
         <QrReader
           delay={delay}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
         />
-        {regex.test(result) ? null : <p className="result">No es una url valida</p>}
+        {regex.test(result) ? null : <p className="result">Introduce una URL válida</p>}
       </div> : <Scanner2 data={result} />}
 
     </div>

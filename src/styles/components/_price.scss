@@ -1,11 +1,18 @@
 @import '../utils/variables.scss';
 @import '../utils/mixins.scss';
 
+.price-cont{
+    width: 100%;
+    height: 70vh;
+}
+
 .price {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
     height: 70vh;
+    width: 100%;
 }
 
 .label{

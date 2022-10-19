@@ -50,11 +50,20 @@ function Result(props) {
 
 
   return (
-    <div>
-      {status.status===200?<div>
-      <p>Consumo del producto 1: {consumption1} €/Mes</p>
-      <p>Consumo del producto 2: {consumption2} €/Mes</p>
-      <Link to={"/advance"}><Button className="btn-back" variant="contained">Acceder a avanzado</Button></Link>
+    <div className="results-cont">
+      {status.status===200?<div className="results">
+      <div className="columns-container">
+        <div className="column1">
+          <p>Producto 1</p>
+          <div>Gasto kWh {consumption1} €/Mes</div>
+        </div>
+        <div className="column2">
+          <p>Producto 2</p>
+          <div>Gasto kWh {consumption2} €/Mes</div>
+        </div>
+      </div>
+      
+      <Link className="go-advance" to={"/advance"}><button><div></div><p>Gráfico de consumo</p><section></section></button></Link>
       </div>
       :null
       }
