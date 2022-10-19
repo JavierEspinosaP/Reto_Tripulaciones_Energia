@@ -1,19 +1,23 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Downshift from 'downshift';
 import { menuStyles, comboboxStyles } from '../shared';
 import Input from '@mui/material/Input';
 import List from '@mui/material/List';
 import Button from '@mui/material/Button';
 import Price from '../Price'
+import { dataContext }  from '../../../../context/dataContext';
+import {productOneContext} from '../../../../context/productOneContext'
+import Form from '../Form'
 
 function Model(props) {
 
   // const modelsData = props.data
   const dataProps = props.data
   const searchBrandData = props.search
-
+  const {dataSession, setDataSession} = useContext(dataContext)
   const [searchModelData, setSearchModelData] = useState('')
+  const {setProductOneTrue} = useContext(productOneContext)
 
   const [data, setData] = useState({})
 
@@ -26,6 +30,13 @@ function Model(props) {
     session_id:dataProps.Session_id
   })
   console.log(data);
+  if (dataSession.length>0) {
+    console.log(dataSession);
+    setDataSession(...dataSession,...data)
+  }
+  setDataSession(data)
+  console.log(dataSession);
+  setProductOneTrue(true)
 
   // eslint-disable-next-line
   }, [searchModelData])// eslint-disable-next-line
@@ -33,7 +44,7 @@ function Model(props) {
 
   return (
     <div>
-      {searchModelData.length === 0?
+      {dataSession.length<4?
       <Downshift
         onChange={(selection) => selection ? setSearchModelData(selection) : null}
 
@@ -82,7 +93,7 @@ function Model(props) {
             </ul>
           </div>
         )}
-      </Downshift>:<Price data={data}/>
+      </Downshift>:<Form data={data}/>
       }
     </div>
   )

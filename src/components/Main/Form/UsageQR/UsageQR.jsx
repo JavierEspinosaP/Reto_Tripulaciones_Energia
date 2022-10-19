@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-import Result from '../Result'
+import Result from '../Result';
+import {dataContext} from '../../../../context/dataContext';
 
 function UsageQR(props) {
 
+  const [dataSession] = useContext(dataContext)
   const brand = props.data.Brand
   const model = props.data.Model
   const id = props.data.Session_id
@@ -12,6 +14,7 @@ function UsageQR(props) {
   const [data, setData] = useState({})
 
 
+  console.log(brand, model, id);
   const submit = (event) => {
     event.preventDefault()
     const usage = event.target.usage.value
@@ -26,7 +29,7 @@ function UsageQR(props) {
       <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
       <p>{brand}</p>
       <p>{model}</p>
-     {Object.keys(data).length === 0?
+     {dataSession.length < 2?
       <form onSubmit={submit}>
         <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
         <input type="submit" value="" />

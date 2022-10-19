@@ -1,14 +1,12 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useContext} from 'react'
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import Form from '../Form'
-import {useForm} from 'react-hook-form'
 
 function Category() {
 
 
   const [category, setCategory] = useState([])
-  const value = ["dishwasher", "washer"]
 
 
   console.log(category);

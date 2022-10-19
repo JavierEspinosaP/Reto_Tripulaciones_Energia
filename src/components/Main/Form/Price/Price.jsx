@@ -1,40 +1,39 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import Result from '../Result'
+import { dataContext }  from '../../../../context/dataContext';
 
 function Price(props) {
 
-  const brand = props.data.brand
-  const model = props.data.model
-  const id = props.data.session_id
+  const data = props.search
 
-  console.log(brand);
+  // session_id: data.Session_id,
+  // brand1 : searchBrandData,
+  // model1 : searchModelData,
+  // brand2 : searchBrandData2,
+  // model2 : searchModelData2
+
+  const [dataSession, setDataSession] = useState({})
 
 
-  const [data, setData] = useState({})
 
-  useEffect(() => {
-    console.log(data)
-// eslint-disable-next-line
-  }, [])
-  
 
   const submit = (event) => {
     event.preventDefault()
     const usage = event.target.usage.value
-    setData({id,usage,brand,model})
-    console.log(data)
+
+    setDataSession({...data, usage: usage})
   }
 
 
 
-
+console.log(dataSession);
   return (
-    <div>{Object.keys(data).length === 0?
+  <div>{Object.keys(dataSession).length === 0?
       <form onSubmit={submit}>
         <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
         <input type="submit" value="" />
       </form>
-      :<Result data={data}/>}
+      :<Result data={dataSession}/>}
     </div>
   )
 }
