@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext} from 'react'
 import Result from '../Result'
-import { dataContext }  from '../../../../context/dataContext';
+
 
 function Price(props) {
 

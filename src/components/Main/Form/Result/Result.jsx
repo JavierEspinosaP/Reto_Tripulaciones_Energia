@@ -2,6 +2,7 @@ import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
+import { dataContext }  from '../../../../context/dataContext';
 
 function Result(props) {
 
@@ -11,7 +12,7 @@ function Result(props) {
   const model2 = props.data.model2
   const usage = props.data.usage
   const session_id = props.data.session_id
-  
+  const {dataSession, setDataSession} = useContext(dataContext)
   const [consumption1, setConsumption1] = useState({})
   const [consumption2, setConsumption2] = useState({})
   const [status, setStatus] = useState([])
@@ -20,7 +21,10 @@ function Result(props) {
 
   
   useEffect(() => {
+
     if (brand1 !== undefined) {
+    setDataSession(props.data.session_id)
+    console.log(dataSession);      
     async function fetchResult() {
       console.log();
       const resResult = await axios.get(`https://whispering-river-01987.herokuapp.com/calculate?api_key=${apiKey}&session_id=${session_id}&brand1=${brand1}&model1=${model1}&brand2=${brand2}&model2=${model2}&time=${usage}`, {
