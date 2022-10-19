@@ -14,12 +14,8 @@ function Category() {
 
   return (
     <div className='category'>
-      <div className="title-container">
-        <Link to={"/"}><a className="back-btn"></a></Link>
-        <p className="title-cat"></p>
-        <div></div>
-      </div>
       {category.length === 0?<div className="cat-container">
+      <Link to={"/"}><a className="back-btn"></a></Link>
       <button className="dishwasher" onClick={()=>{setCategory("dishwasher")}}><figure></figure><p>Lavavajillas</p></button>
       <button className="washer" onClick={()=>{setCategory("washer")}}><figure></figure><p>Lavadoras</p></button>
       <button className="tv-monitor" onClick={()=>{setCategory("tv/monitor")}}><figure></figure><p>Televisores y monitores</p></button>

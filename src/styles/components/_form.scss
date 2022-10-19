@@ -9,19 +9,27 @@
     align-items:center;
 }
 
-.name-device {
-    position: relative;
-    top:-60px;
+.header-container {
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.device {
     font-family: $font-head;
     font-size: 24px;
 }
 
+.space {
+    width: 5px;
+}
+
 
 .input {
-    position:relative;
-    top:-25px;
-    width:250px;
-    height:70px;
+    width:230px;
+    height:50px;
     border-radius:40px;
     padding: 12px, 24px, 12px, 24px;
     background-color: $color-pri-5;
@@ -30,4 +38,10 @@
     font-family: $font-inter;
     font-size: 20px;
     padding-left: 20px;
+}
+
+
+.input-container{
+    margin:0;
+    margin-top: 40px;
 }
