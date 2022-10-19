@@ -4,25 +4,23 @@ import Button from '@mui/material/Button';
 import Result from '../Result';
 
 function UsageQR(props) {
-
-  let brand1 = ''
-  let model1 = ''
-  let brand2 = ''
-  let model2 = ''
-  let session_id = ''  
+  let brand1
+  let model1
+  let brand2
+  let model2
+  let session_id
 
   useEffect(() => {
-  brand1 = props.data.brand1
-  model1 = props.data.model1
-  brand2 = props.data.brand2
-  model2 = props.data.model2
-  session_id = props.data.session_id  
-
+  brand1= props.data.Brand1
+  model1= props.data.Model1
+  brand2 = props.data.Brand2
+  model2= props.data.Model2
+  session_id= props.data.Session_id    
+    console.log(model1);
   }, [props])
   
 
 
-  console.log(props);
 
   const [data, setData] = useState({})
 
