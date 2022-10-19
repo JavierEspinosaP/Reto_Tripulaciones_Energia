@@ -39,9 +39,10 @@ const Form = (props) => {
 
     async function fetchData() {
       try {
-        console.log(category);
+        // console.log(category);
         const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/category?category=${category}&api_key=${apiKey}`)
         console.log(resDemo);
+
         setData(await resDemo.data)
         setBrandData(await resDemo.data.Brand)
       }
@@ -57,14 +58,32 @@ const Form = (props) => {
 
 
   useEffect(() => {
-    const searchDataObj = {
+// console.log(data);
+    let searchDataObj = {}
+    if (data.Consumption_type == 'permanent') {
+      searchDataObj = {
+        consumption_type: data.Consumption_type,
+        session_id: data.Session_id,
+        brand1 : searchBrandData,
+        model1 : searchModelData,
+        brand2 : searchBrandData2,
+        model2 : searchModelData2,
+        usage : 24
+      }
+    }
+    else{
+    searchDataObj = {
+      consumption_type: data.Consumption_type,
       session_id: data.Session_id,
       brand1 : searchBrandData,
       model1 : searchModelData,
       brand2 : searchBrandData2,
-      model2 : searchModelData2
+      model2 : searchModelData2      
+    }
+
     }
     setSearchData(searchDataObj)
+
   }, [searchModelData2])
 
 
@@ -127,7 +146,7 @@ const Form = (props) => {
             </div>
           )}
         </Downshift>
-        <Downshift
+        {searchBrandData.length>0?<Downshift
           onChange={(selection) => selection ? setSearchModelData(selection) : null}
 
           itemToString={(item) => (item ? item : '')}
@@ -175,8 +194,8 @@ const Form = (props) => {
               </ul>
             </div>
           )}
-        </Downshift>
-        <Downshift
+        </Downshift>:null}
+        {searchModelData.length>0?<Downshift
           onChange={(selection) => selection ? setSearchBrandData2(selection) : null}
           itemToString={(item) => (item ? item : '')}
         >
@@ -223,8 +242,8 @@ const Form = (props) => {
               </ul>
             </div>
           )}
-        </Downshift>
-        <Downshift
+        </Downshift>:null}
+        {searchBrandData2.length>0?<Downshift
           onChange={(selection) => selection ? setSearchModelData2(selection) : null}
 
           itemToString={(item) => (item ? item : '')}
@@ -272,7 +291,7 @@ const Form = (props) => {
               </ul>
             </div>
           )}
-        </Downshift>
+        </Downshift>:null}
       </div> : <Price search={searchData} />}
 
     </div>
