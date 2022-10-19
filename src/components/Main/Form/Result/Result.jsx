@@ -13,8 +13,12 @@ function Result(props) {
   const usage = props.data.usage
   const session_id = props.data.session_id
   const {dataSession, setDataSession} = useContext(dataContext)
+  const [cost1, setCost1] = useState({})
+  const [cost2, setCost2] = useState({})
   const [consumption1, setConsumption1] = useState({})
   const [consumption2, setConsumption2] = useState({})
+  const [label1, setLabel1] = useState({})
+  const [label2, setLabel2] = useState({})
   const [status, setStatus] = useState([])
   
   const apiKey = process.env.REACT_APP_API_KEY
@@ -36,10 +40,18 @@ function Result(props) {
       setStatus(resResult)
       // console.log(resResult.request.responseURL);
       console.log(resResult.data);
-      setConsumption1(resResult.data.Cost1)
-      setConsumption2(resResult.data.Cost2)
+      setCost1(resResult.data.Cost1)
+      setCost2(resResult.data.Cost2)
+      setConsumption1(resResult.data.consumption1)
+      setConsumption2(resResult.data.consumption2)
+      setLabel1(resResult.data.label1)
+      setLabel2(resResult.data.label2)
+      console.log(cost1);
+      console.log(cost2);
       console.log(consumption1);
       console.log(consumption2);
+      console.log(label1);
+      console.log(label2);
     }
     fetchResult()
     // eslint-disable-next-line      
@@ -55,11 +67,17 @@ function Result(props) {
       <div className="columns-container">
         <div className="column1">
           <p>Producto 1</p>
-          <div>Gasto kWh {consumption1} €/Mes</div>
+          <section className="div-title1"> <p className="t1p1">{brand1.charAt(0).toUpperCase()+brand1.slice(1)}</p> <p className="t1p2">{model1}</p></section>
+          <div>Gasto kWh {cost1} €/Mes</div>
+          <div>Gasto/ciclo {consumption1} kWh</div>
+          <figure><img src={label1}/></figure>
         </div>
         <div className="column2">
           <p>Producto 2</p>
-          <div>Gasto kWh {consumption2} €/Mes</div>
+          <section className="div-title2"> <p className="t2p1">{brand2.charAt(0).toUpperCase()+brand2.slice(1)}</p> <p className="t2p2">{model2}</p></section>
+          <div>Gasto kWh {cost2}{} €/Mes</div>
+          <div>Gasto/ciclo {consumption2} kWh</div>
+          <figure><img src={label2}/></figure>
         </div>
       </div>
       

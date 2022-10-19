@@ -50,7 +50,7 @@ function Price(props) {
       <form className="price" onSubmit={submit}>
         {console.log(isTrue)}  
         <label className="label" htmlFor="">Introduce tiempo de uso en {type}</label>
-        <input className="input" type="text" name="usage" placeholder="Introduce dato" />
+        <input className="input" required={true} type="text" name="usage" placeholder="Introduce dato" />
         <input className="btn-link-simple" type="submit" value="Visualiza la información" />
       </form>
       :<Result data={dataSession}/>}
