@@ -20,8 +20,9 @@ function Result(props) {
 
   
   useEffect(() => {
-
+    if (brand1 !== undefined) {
     async function fetchResult() {
+      console.log();
       const resResult = await axios.get(`https://whispering-river-01987.herokuapp.com/calculate?api_key=${apiKey}&session_id=${session_id}&brand1=${brand1}&model1=${model1}&brand2=${brand2}&model2=${model2}&time=${usage}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -37,7 +38,9 @@ function Result(props) {
       console.log(consumption2);
     }
     fetchResult()
-    // eslint-disable-next-line
+    // eslint-disable-next-line      
+    }
+
   }, [brand1])
 
 
