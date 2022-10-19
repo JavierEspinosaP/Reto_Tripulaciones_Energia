@@ -7,11 +7,13 @@ import { ResponsiveLineCanvas } from "@nivo/line";
 // website examples showcase many properties,
 // you'll often use just a few of them.
 export const MyResponsiveLine = ({ data, rangeMax, yRangeMax }) => {
-    console.log(data);
+    console.log(rangeMax, yRangeMax);
   const filteredData = data.map((singleLine) => ({
     ...singleLine,
     data: singleLine.data.filter((d) => d.x < rangeMax)
   }));
+
+  console.log(rangeMax, yRangeMax);
 
   return (
     <ResponsiveLineCanvas
@@ -23,7 +25,7 @@ export const MyResponsiveLine = ({ data, rangeMax, yRangeMax }) => {
       curve="monotoneX"
       axisTop={null}
       axisRight={{
-        tickValues: [0, 10, 50, 200, 500, 1000],
+        tickValues: [1,2,3,4,5,6,7,8,9].filter((v)=> v < yRangeMax),
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
@@ -32,26 +34,26 @@ export const MyResponsiveLine = ({ data, rangeMax, yRangeMax }) => {
         legendOffset: 0
       }}
       axisBottom={{
-        tickValues: [0, 20, 40, 60, 80, 100, 120].filter((v) => v < rangeMax),
+        tickValues: [1,2,3,4,5,6,7,8,9].filter((v) => v < rangeMax),
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
         format: ".2f",
-        legend: "price",
+        legend: "tiempo",
         legendOffset: 36,
         legendPosition: "middle"
       }}
       axisLeft={{
-        tickValues: [0, 10, 50, 200, 500, 1000],
+        tickValues: [1,2,3,4,5,6,7,8,9].filter((v)=> v < yRangeMax),
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
         format: ".2s",
-        legend: "volume",
+        legend: "precio",
         legendOffset: -40,
         legendPosition: "middle"
       }}
-      enableGridX={false}
+      enableGridX={true}
       colors={{ scheme: "spectral" }}
       lineWidth={1}
       pointSize={4}
@@ -60,9 +62,9 @@ export const MyResponsiveLine = ({ data, rangeMax, yRangeMax }) => {
       pointBorderColor={{ from: "serieColor" }}
       pointLabelYOffset={-12}
       useMesh={true}
-      isinteractive={false}
+      isInteractive={false}
       gridXValues={[0, 20, 40, 60, 80, 100, 120]}
-      gridYValues={[0, 10, 50, 200, 500, 1000]}
+      gridYValues={[0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500]}
       legends={[
         {
           anchor: "bottom-right",

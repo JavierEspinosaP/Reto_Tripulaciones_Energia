@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { MyResponsiveLine } from './Graph';
 import { dataContext } from '../../../../context/dataContext'
@@ -14,8 +14,9 @@ function AdvanceResult(props) {
   const [status, setStatus] = useState([])
   const { dataSession, setDataSession } = useContext(dataContext)
   const [json, setJson] = useState([])
-  const [rangeMax, setRangeMax] = useState(50);
+  const [rangeMax, setRangeMax] = useState(10);
   const [yRangeMax, setYRangeMax] = useState(500);
+  const [dataChart, setDataChart] = useState({})
   const apiKey = process.env.REACT_APP_API_KEY
 
 
@@ -28,7 +29,7 @@ function AdvanceResult(props) {
         console.log(dataSession);
         const resResult = await axios.get(`https://whispering-river-01987.herokuapp.com/advanced?api_key=${apiKey}&session_id=${dataSession}&months=${usage}&price1=${price}&price2=${price2}`)
         const resData = await resResult.data
-
+        console.log(resResult);
         let endYear = await resData.Total_years
         let endValue1 = await resData.EndValue1
         let endValue2 = await resData.EndValue2
@@ -80,20 +81,23 @@ function AdvanceResult(props) {
 
         const dataChart1 = initialData1.data
         const dataChart2 = initialData2.data
+        setDataChart({dataChart1:dataChart1, dataChart2:dataChart2}) 
         const chart = [initialData1, initialData2]
+        const yPointValue = (endValue1 - price)/10
+        const yPointValue2 = (endValue2 - price2)/10
 
-        for (let i = 10; i > 1; i--) {
+        for (let i = 1; i < 10; i++) {
           dataChart1.push({
             x: arrXPoints[i],
-            y: (Number(price)+(Number(endValue / i)))
+            y: (Number(price)+yPointValue*i)
           })
           console.log(endValue);
         }
 
-        for (let i = 10; i > 1; i--) {
+        for (let i = 1; i < 10; i++) {
           dataChart2.push({
             x: arrXPoints[i],
-            y: (Number(price2)+(Number(endValue / i)))
+            y: (Number(price2)+yPointValue2*i)
           })
           console.log(endValue)
         }
@@ -102,10 +106,11 @@ function AdvanceResult(props) {
         console.log(consumption);
         setRangeMax(endYear)
         if (price > price2) {
-          setYRangeMax(price * 1.2)
+          setYRangeMax(price * 4)
         }
-        else { setYRangeMax(price2 * 1.2) }
+        else { setYRangeMax(price2 * 4) }
         setJson(chart)
+        console.log(rangeMax, yRangeMax);
 
       }
       fetchResult()
@@ -118,7 +123,7 @@ function AdvanceResult(props) {
   return (
     <div>
       {status === 200 ? <div className="chartContainer">
-        <MyResponsiveLine data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
+        <MyResponsiveLine axis={dataChart}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
       </div> : null}
 
 
