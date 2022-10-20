@@ -11,7 +11,7 @@ function Result(props) {
   const brand2 = props.data.brand2
   const model2 = props.data.model2
   const usage = props.data.usage
-  const session_id = props.data.session_id
+  const session_id = 'undefined'
   const {dataSession, setDataSession} = useContext(dataContext)
   const [cost1, setCost1] = useState({})
   const [cost2, setCost2] = useState({})
@@ -27,25 +27,27 @@ function Result(props) {
   useEffect(() => {
 
     if (brand1 !== undefined) {
-    setDataSession(props.data.session_id)
+
     console.log(dataSession);      
     async function fetchResult() {
       console.log();
       const resResult = await axios.get(`https://whispering-river-01987.herokuapp.com/calculate?api_key=${apiKey}&session_id=${session_id}&brand1=${brand1}&model1=${model1}&brand2=${brand2}&model2=${model2}&time=${usage}`, {
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': '*', 
           'Content-Type': 'application/json',
         }
       })
       setStatus(resResult)
       // console.log(resResult.request.responseURL);
       console.log(resResult.data);
+
       setCost1(resResult.data.Cost1)
       setCost2(resResult.data.Cost2)
       setConsumption1(resResult.data.consumption1)
       setConsumption2(resResult.data.consumption2)
       setLabel1(resResult.data.label1)
       setLabel2(resResult.data.label2)
+      setDataSession(resResult.data.session_id)
       console.log(cost1);
       console.log(cost2);
       console.log(consumption1);

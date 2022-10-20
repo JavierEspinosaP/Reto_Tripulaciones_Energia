@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import QrReader from "react-web-qr-reader";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import UsageQR from '../Form/UsageQR';
-import { dataContext }  from '../../../context/dataContext';
+import { dataContext } from '../../../context/dataContext';
 
 
 const Example2 = (props) => {
@@ -12,7 +12,7 @@ const Example2 = (props) => {
 
   const qr1 = props.data
   console.log(qr1);
-  const delay = 500;
+  const delay = 1000;
   const previewStyle = {
     margin: "50px",
     height: 240,
@@ -25,44 +25,52 @@ const Example2 = (props) => {
   const apiKey = process.env.REACT_APP_API_KEY
 
   const handleScan = (result) => {
-
-    if (result) {
-
-       setResult(result); 
+      if (result) {
+      setResult(result);
     }
+    setTimeout(() => {
+      console.log("");
+    }, 2000);
   };
 
   useEffect(() => {
-    
-  async function fetchData(){
-  let regex = /https:\/\/eprel\.ec\.europa\.eu\/qr\//i;
 
-  const url = result.data
-  let id
-  if (url) {
-  id = url.split('/').pop();    
-  }
+    async function fetchData() {
+      let regex = /https:\/\/eprel\.ec\.europa\.eu\/qr\//i;
 
-  
-
-  if(regex.test(url)){
+      const url = result.data
+      console.log(url);
+      let id
+      if (url) {
+        id = url.split('/').pop();
+      }
 
 
-    console.log(id);
-    console.log(qr1);
-    console.log(apiKey);
-    const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/check_qr?api_key=${apiKey}&product_Id1=${id}&product_Id2=${qr1}`)
-    setResponse(resDemo.data)
 
-  console.log(resDemo);    
-  }    
-  }
-  fetchData()
+      if (regex.test(url)) {
 
 
-// eslint-disable-next-line
+
+        console.log(apiKey);
+        console.log(id);
+        console.log(qr1);  
+        const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/check_qr?api_key=${apiKey}&productId1=${id}&productId2=${qr1}`)
+        console.log(id);
+        console.log(qr1);        
+        console.log(resDemo);
+        setResponse(resDemo.data)
+        console.log(response);
+
+
+      }
+    }
+    fetchData()
+
+
+
+    // eslint-disable-next-line
   }, [result])
-  
+
 
   const handleError = (error) => {
     console.log(error);
@@ -70,18 +78,18 @@ const Example2 = (props) => {
 
   return (
     <div>
-      {Object.keys(response).length === 0?<div className="camaraContainer">
+      {Object.keys(response).length === 0 ? <div className="camaraContainer">
         <p>esto es scanner 2</p>
-      <Link className="btn-link"  to={"/"}><Button sx={{margin: 3}} variant="contained">Volver</Button></Link>
-      <QrReader
-        delay={delay}
-        style={previewStyle}
-        onError={handleError}
-        onScan={handleScan}
-      />
-      {regex.test(result.data)?null:<p className="result">Esto es scanner 2</p>}         
-      </div>:<UsageQR data={response}/>}
-     
+        <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
+        <QrReader
+          delay={delay}
+          style={previewStyle}
+          onError={handleError}
+          onScan={handleScan}
+        />
+        {regex.test(result.data) ? null : <p className="result">Esto es scanner 2</p>}
+      </div> : <UsageQR data={response} />}
+
     </div>
   );
 };

@@ -12,7 +12,7 @@ function Advance() {
 
   const submit = (event) => {
     event.preventDefault()
-    const id = dataSession.id
+    const id = dataSession
     const usage = event.target.usage.value
     const price1 = event.target.price1.value
     const price2 = event.target.price2.value
