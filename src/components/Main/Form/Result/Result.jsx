@@ -97,7 +97,7 @@ function Result(props) {
       
       <Link className="go-advance" to={"/advance"}><button><div></div><p>Gráfico de consumo</p><section></section></button></Link>
       </div>
-      : <img className="spinner" src={Gif} />
+      : null
       }
     </div>
   )
