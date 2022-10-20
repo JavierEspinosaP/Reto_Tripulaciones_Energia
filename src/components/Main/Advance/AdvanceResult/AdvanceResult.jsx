@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { MyResponsiveLine } from './Graph';
 import { dataContext } from '../../../../context/dataContext'
+import { Link } from "react-router-dom";
 
 function AdvanceResult(props) {
 
@@ -141,12 +142,16 @@ function AdvanceResult(props) {
 
 
   return (
-    <div>
+    <div className="advance-result">
+      <section className="title-container">
+        <Link to={"/"}><a className="back-home"></a></Link>
+        
+        <p className="title">Gráfica</p>
+        <div></div>
+      </section>
       {status === 200 ? <div className="chartContainer">
         <MyResponsiveLine endValue={endValue} initialPrice={initialPrice}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
       </div> :"null"}
-
-
     </div>
   )
 }
