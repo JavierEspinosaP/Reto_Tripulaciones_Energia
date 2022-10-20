@@ -12,7 +12,7 @@ function Result(props) {
   const model2 = props.data.model2
   const consumptiontype = props.data.consumption_type
   const usage = props.data.usage
-  const session_id = 'undefined'
+  let session_id = props.data.session_id
   const {dataSession, setDataSession} = useContext(dataContext)
   const [cost1, setCost1] = useState({})
   const [cost2, setCost2] = useState({})
@@ -28,6 +28,9 @@ function Result(props) {
   useEffect(() => {
 
     if (brand1 !== undefined) {
+      if (session_id == undefined) {
+        session_id = 'undefined'
+      }
 
     console.log(dataSession);      
     async function fetchResult() {

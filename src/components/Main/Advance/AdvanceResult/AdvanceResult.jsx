@@ -164,7 +164,7 @@ console.log(noEndValue);
       <div>
         <p>Ahorro en {endYear} año/s: {difference}€ </p>
       </div>
-      </div> :"null"}
+      </div> :null}
     </div>
   )
 }
