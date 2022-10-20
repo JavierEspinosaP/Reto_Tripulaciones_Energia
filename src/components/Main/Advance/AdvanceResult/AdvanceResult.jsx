@@ -38,12 +38,12 @@ function AdvanceResult(props) {
         let endYear = await resData.Total_years
         let endValue1 = await resData.EndValue1
         let endValue2 = await resData.EndValue2
+        let difference = await resData.difference
         console.log("esto es endValue", endValue1);
         console.log("esto es el precio inicial", price);
         console.log("esto es precio 2 inicial", price2);
         setEndYear(endYear)
         let endValue
-        let noEndValue
 
         if (endValue1>endValue2) {
           endValue = endValue1
@@ -53,13 +53,6 @@ function AdvanceResult(props) {
         }
         setEndValue(endValue)
 
-        if (endValue == endValue1) {
-          noEndValue = endValue2
-        }
-        else{
-          noEndValue = endValue
-        }
-console.log(noEndValue);
 
         if(price>price2){
           setInitialPrice(price)
@@ -117,7 +110,6 @@ console.log(noEndValue);
         const yPointValue = (endValue1 - price)/10
         const yPointValue2 = (endValue2 - price2)/10
         console.log(chart);
-        const difference = endValue - noEndValue
         setDifference(difference)
 
         for (let i = 1; i < 11; i++) {
