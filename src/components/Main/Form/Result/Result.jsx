@@ -10,6 +10,7 @@ function Result(props) {
   const model1 = props.data.model1
   const brand2 = props.data.brand2
   const model2 = props.data.model2
+  const consumptiontype = props.data.consumption_type
   const usage = props.data.usage
   const session_id = 'undefined'
   const {dataSession, setDataSession} = useContext(dataContext)
@@ -62,6 +63,15 @@ function Result(props) {
   }, [brand1])
 
 
+  function renderSwitch(consumptiontype) {
+    switch(consumptiontype) {
+      case 'hour':
+        return '/hora';
+      default:
+        return '';
+    }
+  }
+
 
   return (
     <div className="results-cont">
@@ -71,14 +81,16 @@ function Result(props) {
           <p>Producto 1</p>
           <section className="div-title1"> <p className="t1p1">{brand1.charAt(0).toUpperCase()+brand1.slice(1)}</p> <p className="t1p2">{model1}</p></section>
           <div>Gasto kWh {cost1} €/Mes</div>
-          <div>Gasto/ciclo {consumption1} kWh</div>
+
+          <section className="div-cons1"><p className="cons-t1p1">Gasto{renderSwitch(consumptiontype)}</p><p className="cons-t1p2">{consumption1} kWh</p></section>
           <figure><img src={label1}/></figure>
         </div>
         <div className="column2">
           <p>Producto 2</p>
           <section className="div-title2"> <p className="t2p1">{brand2.charAt(0).toUpperCase()+brand2.slice(1)}</p> <p className="t2p2">{model2}</p></section>
           <div>Gasto kWh {cost2}{} €/Mes</div>
-          <div>Gasto/ciclo {consumption2} kWh</div>
+
+          <section className="div-cons2"><p className="cons-t2p1">Gasto{renderSwitch(consumptiontype)}</p> <p className="cons-t2p2">{consumption2} kWh</p></section>
           <figure><img src={label2}/></figure>
         </div>
       </div>
