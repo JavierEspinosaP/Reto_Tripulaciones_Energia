@@ -33,12 +33,27 @@ function Price(props) {
   }, [data])
   
 
+  function renderSwitch(data) {
+    switch(data) {
+      case 'cycle':
+        return 'ciclos/semana';
+      case 'hour':
+        return 'horas/día';
+      case 'hours_week':
+        return 'horas/semana';
+    }
+  }
+
+  const regex = /^\d+$/;
 
 
   const submit = (event) => {
     event.preventDefault()
     const usage = event.target.usage.value
-
+    if (regex.test(usage)) {
+      setDataSession({...data, usage: usage})
+      setIsTrue(true)
+    }
     setDataSession({...data, usage: usage})
     setIsTrue(true)
   }
@@ -49,8 +64,8 @@ function Price(props) {
 
       <form className="price" onSubmit={submit}>
         {console.log(isTrue)}  
-        <label className="label" htmlFor="">Introduce tiempo de uso en {type}</label>
-        <input className="input" required={true} type="text" name="usage" placeholder="Introduce dato" />
+        <label className="label" htmlFor="">Introduce uso en {renderSwitch(data.consumption_type)}</label>
+        <input className="input" required={true} type="number" pattern="[0-9]+" name="usage" placeholder="Introduce dato" />
         <input className="btn-link-simple" type="submit" value="Visualiza la información" />
       </form>
       :<Result data={dataSession}/>}

@@ -15,7 +15,7 @@ function Advance() {
     const id = dataSession.id
     const usage = event.target.usage.value
     const price1 = event.target.price1.value
-    const price2 = event.target.price2.value 
+    const price2 = event.target.price2.value
     setData({ id, usage, price1, price2 })
     console.log(dataSession);
     console.log(data)
@@ -25,16 +25,22 @@ function Advance() {
   return (
     <div>
       <div>
-        <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
+
         {Object.keys(data).length === 0 ?
           <div>
-            <form onSubmit={submit}>
-              <input type="text" name="usage" placeholder="Introduce meses de uso" />
-              <input type="text" name="price1" placeholder="Introduce precio del segundo producto" />
-              <input type="text" name="price2" placeholder="Introduce precio del segundo producto" />
-              <input type="submit" value="" />
+
+            <form className="advance-form" onSubmit={submit}>
+              <div className="title-container">
+                <Link to={"/"}><a className="home-back"></a></Link>
+                <p>Calcula la amortización</p>
+                <div></div>
+              </div>
+              <input className="meses-uso" type="text" name="usage" placeholder="Meses de uso" />
+              <input className="prod1" type="text" name="price1" placeholder="Precio del producto 1" />
+              <input className="prod2" type="text" name="price2" placeholder="Precio del producto 2" />
+              <input className="send" type="submit" value="Enviar" />
             </form>
-            </div>
+          </div>
           : <AdvanceResult data={data} />}
       </div>
     </div>
