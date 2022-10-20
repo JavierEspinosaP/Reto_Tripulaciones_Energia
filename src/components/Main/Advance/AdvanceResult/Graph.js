@@ -6,21 +6,21 @@ import { ResponsiveLineCanvas } from "@nivo/line";
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-export const MyResponsiveLine = ({initialPrice, data, rangeMax, yRangeMax }) => {
+export const MyResponsiveLine = ({endValue, initialPrice, data, rangeMax, yRangeMax }) => {
     console.log(rangeMax, yRangeMax);
-  const filteredData = data.map((singleLine) => ({
-    ...singleLine,
-    data: singleLine.data.filter((d) => d.x < rangeMax)
-  }));
+  // const filteredData = data.map((singleLine) => ({
+  //   ...singleLine,
+  //   data: singleLine.data.filter((d) => d.x < rangeMax)
+  // }));
 
   console.log(rangeMax, yRangeMax);
 
   return (
     <ResponsiveLineCanvas
-      data={filteredData}
+      data={data}
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
-      xScale={{ type: "linear", min: 'auto', max: 'auto' }}
-      yScale={{ type: "linear", stacked: true, min: 'auto', max: 'auto',reverse: false}}
+      xScale={{ type: "linear", min: '0', max: 'auto' }}
+      yScale={{ type: "linear", min: '0', max: (endValue * 1.2),reverse: false}}
       yFormat=" >-.2f"
       // curve="monotoneX"
       axisTop={null}
@@ -38,7 +38,7 @@ export const MyResponsiveLine = ({initialPrice, data, rangeMax, yRangeMax }) => 
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: ".2f",
+        format: ".0f",
         legend: "años",
         legendOffset: 36,
         legendPosition: "middle"
@@ -48,23 +48,24 @@ export const MyResponsiveLine = ({initialPrice, data, rangeMax, yRangeMax }) => 
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: ".2s",
+        format: ".1s",
         legend: "€",
-        legendOffset: -40,
+        legendOffset: -30,
         legendPosition: "middle"
       }}
       enableGridY={false}
       enableGridX={false}
-      colors={{ scheme: 'nivo' }}
-      lineWidth={1}
-      pointSize={4}
+      colors={{ scheme: 'accent' }}
+      lineWidth={3}
+      pointSize={8}
       pointColor="#24b2f9"
       pointBorderWidth={1}
       pointBorderColor={{ from: "serieColor" }}
       pointLabelYOffset={-12}
       enableArea={true}  
-      areaBaselineValue={initialPrice}
-      areaOpacity={0.5}    
+      areaBaselineValue={0}
+      areaBlendMode="difference"
+      areaOpacity={0.4}    
       useMesh={true}
       isInteractive={false}
       gridXValues={[0, 20, 40, 60, 80, 100, 120]}
@@ -78,7 +79,7 @@ export const MyResponsiveLine = ({initialPrice, data, rangeMax, yRangeMax }) => 
             translateY: -36,
             itemWidth: 100,
             itemHeight: 36,
-            itemsSpacing: 4,
+            itemsSpacing: 50,
             symbolSize: 20,
             symbolShape: 'circle',
             itemDirection: 'left-to-right',

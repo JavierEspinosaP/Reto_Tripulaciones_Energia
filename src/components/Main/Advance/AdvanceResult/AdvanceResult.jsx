@@ -19,6 +19,7 @@ function AdvanceResult(props) {
   const [dataChart, setDataChart] = useState({})
   const apiKey = process.env.REACT_APP_API_KEY
   const [initialPrice, setInitialPrice] = useState([])
+  const [endValue, setEndValue] = useState([])
 
 
 
@@ -45,6 +46,7 @@ function AdvanceResult(props) {
         else {
           endValue = endValue2
         }
+        setEndValue(endValue)
 
 
         if(price>price2){
@@ -63,6 +65,7 @@ function AdvanceResult(props) {
 
         const xPoints = endYear / 10
         const arrXPoints = []
+        // const arrXPoints = []
 
         for (let i = 0; i < 10; i++) {
           arrXPoints.push(xPoints * i)
@@ -101,6 +104,7 @@ function AdvanceResult(props) {
         const chart = [initialData1, initialData2]
         const yPointValue = (endValue1 - price)/10
         const yPointValue2 = (endValue2 - price2)/10
+        console.log(chart);
 
         for (let i = 1; i < 10; i++) {
           dataChart1.push({
@@ -139,7 +143,7 @@ function AdvanceResult(props) {
   return (
     <div>
       {status === 200 ? <div className="chartContainer">
-        <MyResponsiveLine initialPrice={initialPrice}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
+        <MyResponsiveLine endValue={endValue} initialPrice={initialPrice}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
       </div> :"null"}
 
 

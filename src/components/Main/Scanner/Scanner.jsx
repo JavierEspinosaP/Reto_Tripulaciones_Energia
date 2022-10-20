@@ -35,7 +35,7 @@ const Example = () => {
       }
       if (regex.test(url)) {setResult(id)}
       console.log(result);
-    }
+    } 
   };
 
 
