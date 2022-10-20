@@ -21,6 +21,8 @@ function AdvanceResult(props) {
   const apiKey = process.env.REACT_APP_API_KEY
   const [initialPrice, setInitialPrice] = useState([])
   const [endValue, setEndValue] = useState([])
+  const [difference, setDifference] = useState([])
+  const [endYear, setEndYear] = useState([])
 
 
 
@@ -39,7 +41,9 @@ function AdvanceResult(props) {
         console.log("esto es endValue", endValue1);
         console.log("esto es el precio inicial", price);
         console.log("esto es precio 2 inicial", price2);
+        setEndYear(endYear)
         let endValue
+        let noEndValue
 
         if (endValue1>endValue2) {
           endValue = endValue1
@@ -49,6 +53,13 @@ function AdvanceResult(props) {
         }
         setEndValue(endValue)
 
+        if (endValue == endValue1) {
+          noEndValue = endValue2
+        }
+        else{
+          noEndValue = endValue
+        }
+console.log(noEndValue);
 
         if(price>price2){
           setInitialPrice(price)
@@ -68,7 +79,7 @@ function AdvanceResult(props) {
         const arrXPoints = []
         // const arrXPoints = []
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 11; i++) {
           arrXPoints.push(xPoints * i)
         }
 
@@ -106,8 +117,10 @@ function AdvanceResult(props) {
         const yPointValue = (endValue1 - price)/10
         const yPointValue2 = (endValue2 - price2)/10
         console.log(chart);
+        const difference = endValue - noEndValue
+        setDifference(difference)
 
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < 11; i++) {
           dataChart1.push({
             x: arrXPoints[i],
             y: (Number(price)+yPointValue*i)
@@ -115,7 +128,7 @@ function AdvanceResult(props) {
           console.log(endValue);
         }
 
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < 11; i++) {
           dataChart2.push({
             x: arrXPoints[i],
             y: (Number(price2)+yPointValue2*i)
@@ -126,10 +139,7 @@ function AdvanceResult(props) {
         setConsumption(resResult.data)
         console.log(consumption);
         setRangeMax(endYear)
-        if (price > price2) {
-          setYRangeMax(price * 4)
-        }
-        else { setYRangeMax(price2 * 4) }
+        setYRangeMax(endValue * 1,5)
         setJson(chart)
         console.log(rangeMax, yRangeMax);
 
@@ -151,6 +161,9 @@ function AdvanceResult(props) {
       </section>
       {status === 200 ? <div className="chartContainer">
         <MyResponsiveLine endValue={endValue} initialPrice={initialPrice}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
+      <div>
+        <p>Ahorro en {endYear} año/s: {difference}€ </p>
+      </div>
       </div> :"null"}
     </div>
   )
