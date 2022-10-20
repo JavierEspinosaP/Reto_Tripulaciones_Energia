@@ -34,7 +34,9 @@ function AdvanceResult(props) {
         let endYear = await resData.Total_years
         let endValue1 = await resData.EndValue1
         let endValue2 = await resData.EndValue2
-        console.log(endValue1);
+        console.log("esto es endValue", endValue1);
+        console.log("esto es el precio inicial", price);
+        console.log("esto es precio 2 inicial", price2);
         let endValue
 
         if (endValue1>endValue2) {
