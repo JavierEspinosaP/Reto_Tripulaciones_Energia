@@ -55,7 +55,7 @@ export const MyResponsiveLine = ({endValue, initialPrice, data, rangeMax, yRange
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: ".1s",
+        format: ".2s",
         legend: "€",
         legendOffset: -30,
         legendPosition: "middle"
@@ -82,7 +82,7 @@ export const MyResponsiveLine = ({endValue, initialPrice, data, rangeMax, yRange
             anchor: 'top',
             direction: 'row',
             justify: false,
-            translateX: 25,
+            translateX: 0,
             translateY: -36,
             itemWidth: 100,
             itemHeight: 36,

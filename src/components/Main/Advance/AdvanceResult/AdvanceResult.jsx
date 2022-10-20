@@ -86,7 +86,7 @@ function AdvanceResult(props) {
         };
 
         const initialData1 = {
-          id: resResult.data.brand1,
+          id: "Producto 2 (" + resResult.data.brand1 + ")",
           color: toHSLObject('hsl(127, 100%, 50%)'),
           data: [{
             x: 0,
@@ -95,7 +95,7 @@ function AdvanceResult(props) {
         }
 
         const initialData2 = {
-          id: resResult.data.brand2,
+          id: "Producto 1 (" + resResult.data.brand2 + ")",
           color: toHSLObject('hsl(127, 100%, 50%)'),
           data: [{
             x: 0,
@@ -147,14 +147,13 @@ function AdvanceResult(props) {
     <div className="advance-result">
       <section className="title-container">
         <Link to={"/"}><a className="back-home"></a></Link>
-        
         <p className="title">Gráfica</p>
         <div></div>
       </section>
       {status === 200 ? <div className="chartContainer">
         <MyResponsiveLine endValue={endValue} initialPrice={initialPrice}  data={json} rangeMax={rangeMax} yRangeMax={yRangeMax} />
-      <div>
-        <p>Ahorro en {endYear} año/s: {difference}€ </p>
+      <div className="dataResult">
+        <p >Ahorro en {endYear} año/s: {difference}€ </p>
       </div>
       </div> :null}
     </div>

@@ -30,6 +30,14 @@
 
 
 .chartContainer {
+    
     height: 500px;
     width: 100%;
+}
+
+.dataResult{
+    display: flex;
+    justify-content:center;
+    font-size: 18px;
+    font-weight: bold;
 }

@@ -23,15 +23,20 @@ const Example2 = (props) => {
   const [result, setResult] = useState({});
   const [response, setResponse] = useState({})
   const apiKey = process.env.REACT_APP_API_KEY
+  const [isTrue, setTrue] = useState(false)
 
   const handleScan = (result) => {
-      if (result) {
+    if (result) {
       setResult(result);
     }
     setTimeout(() => {
       console.log("");
     }, 2000);
   };
+
+  const handleClick = () => {
+    setTrue(true)
+  }
 
   useEffect(() => {
 
@@ -44,7 +49,7 @@ const Example2 = (props) => {
       if (url) {
         id = url.split('/').pop();
       }
-
+      console.log(isTrue);
 
 
       if (regex.test(url)) {
@@ -53,10 +58,10 @@ const Example2 = (props) => {
 
         console.log(apiKey);
         console.log(id);
-        console.log(qr1);  
+        console.log(qr1);
         const resDemo = await axios.get(`https://whispering-river-01987.herokuapp.com/check_qr?api_key=${apiKey}&productId1=${id}&productId2=${qr1}`)
         console.log(id);
-        console.log(qr1);        
+        console.log(qr1);
         console.log(resDemo);
         setResponse(resDemo.data)
         console.log(response);
@@ -77,19 +82,25 @@ const Example2 = (props) => {
   };
 
   return (
+
     <div>
-      {Object.keys(response).length === 0 ? <div className="camaraContainer">
-        <Link to={"/"}><a className="btn-home"></a></Link>
-        <QrReader
-          delay={delay}
-          style={previewStyle}
-          onError={handleError}
-          onScan={handleScan}
-        />
-        {regex.test(result.data) ? null : <p className="result">Introduce una URL válida 2</p>}
-      </div> : <UsageQR data={response} />}
+
+      {Object.keys(response).length === 0 ?
+      
+        <div className="camaraContainer">
+      <Link to={"/"}><a className="btn-home"></a></Link>          
+          <QrReader
+            delay={delay}
+            style={previewStyle}
+            onError={handleError}
+            onScan={handleScan}
+          />
+          {regex.test(result.data) ? null : <p className="result">Escanea Producto 2</p>}
+        </div> : <UsageQR data={response} />}
 
     </div>
+
+
   );
 };
 
