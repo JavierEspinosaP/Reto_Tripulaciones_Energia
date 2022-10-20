@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios';
-import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import { dataContext }  from '../../../../context/dataContext';
+import Gif from '../../../../assets/spinner.gif';
 
 function Result(props) {
 
@@ -85,7 +85,7 @@ function Result(props) {
       
       <Link className="go-advance" to={"/advance"}><button><div></div><p>Gráfico de consumo</p><section></section></button></Link>
       </div>
-      :null
+      : <img className="spinner" src={Gif} />
       }
     </div>
   )

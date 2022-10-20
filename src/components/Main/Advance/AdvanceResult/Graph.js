@@ -14,13 +14,20 @@ export const MyResponsiveLine = ({endValue, initialPrice, data, rangeMax, yRange
   // }));
 
   console.log(rangeMax, yRangeMax);
+  const theme = {
+    axis: {
+      textColor: '#eee',
+      fontSize: '30px',
+      tickColor: '#eee',
+    }}
 
   return (
     <ResponsiveLineCanvas
       data={data}
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
+      theme={theme}
       xScale={{ type: "linear", min: '0', max: 'auto' }}
-      yScale={{ type: "linear", min: '0', max: (endValue * 1.2),reverse: false}}
+      yScale={{ type: "linear", min: '0', max: (yRangeMax * 1.2),reverse: false}}
       yFormat=" >-.2f"
       // curve="monotoneX"
       axisTop={null}
@@ -38,7 +45,7 @@ export const MyResponsiveLine = ({endValue, initialPrice, data, rangeMax, yRange
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: ".0f",
+        format: ".1f",
         legend: "años",
         legendOffset: 36,
         legendPosition: "middle"
