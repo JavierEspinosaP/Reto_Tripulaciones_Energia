@@ -79,15 +79,14 @@ const Example2 = (props) => {
   return (
     <div>
       {Object.keys(response).length === 0 ? <div className="camaraContainer">
-        <p>esto es scanner 2</p>
-        <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
+        <Link to={"/"}><a className="btn-home"></a></Link>
         <QrReader
           delay={delay}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
         />
-        {regex.test(result.data) ? null : <p className="result">Esto es scanner 2</p>}
+        {regex.test(result.data) ? null : <p className="result">Introduce una URL válida 2</p>}
       </div> : <UsageQR data={response} />}
 
     </div>

@@ -1,0 +1,19 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.usageqr-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    &>form{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

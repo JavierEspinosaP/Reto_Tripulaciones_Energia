@@ -34,16 +34,16 @@ function UsageQR(props) {
 
 
   return (
-    <div>
-      <Link className="btn-link" to={"/"}><Button sx={{ margin: 3 }} variant="contained">Volver</Button></Link>
+    <div className="usageqr-container">
+      <Link to={"/"}><a className="btn-home" variant="contained"></a></Link>
       {/* <p>{brand}</p>
       <p>{model}</p> */}
      {/* {dataSession.length < 2? */}
       <form onSubmit={submit}>
-        <input type="text" name="usage" placeholder="Introduce tiempo de uso" />
-        <input type="submit" value="" />
+        <input className="input" type="text" name="usage" placeholder="Introduce tiempo de uso" />
+        <input className="send" type="submit" value="Enviar" />
       </form>
-      :<Result data={data}/>
+      <Result data={data}/>
     </div>
   )
 }
