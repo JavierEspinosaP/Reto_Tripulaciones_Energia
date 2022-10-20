@@ -139,10 +139,7 @@ console.log(noEndValue);
         setConsumption(resResult.data)
         console.log(consumption);
         setRangeMax(endYear)
-        if (price > price2) {
-          setYRangeMax(endValue * 1,5)
-        }
-        else { setYRangeMax(endValue * 1,5) }
+        setYRangeMax(endValue * 1,5)
         setJson(chart)
         console.log(rangeMax, yRangeMax);
 
